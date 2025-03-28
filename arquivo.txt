@@ -1,0 +1,9 @@
+# Na função main, comente ou substitua esta linha:
+# docs = rerank_semantically(message.content, docs)
+
+# E use diretamente os documentos recuperados pelo retriever:
+# docs já contém os documentos recuperados pelo retriever
+
+esse modelo é treinado?
+
+então, já que tenho o modelo da OpenAI, ele é capaz de atender o meu objetivo (a regra de negócio) do meu projeto, certo? Se sim, o que eu devo fazer para o modelo conseguir me retornar qualquer resposta relacionada ao arquivo PDF que for enviado?
