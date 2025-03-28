@@ -1,0 +1,472 @@
+[
+  {
+    "timestamp": "2025-03-26T11:12:48.567228",
+    "user_input": "Qual a data da autuação?",
+    "response": "A data da autuação é 07/08/2024."
+  },
+  {
+    "timestamp": "2025-03-26T11:13:09.793283",
+    "user_input": "quantas páginas esse documento consiste?",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T11:13:30.214943",
+    "user_input": "qual o nome do perito?",
+    "response": "O nome do perito é Mauro Lopes Garcia Filho."
+  },
+  {
+    "timestamp": "2025-03-26T11:13:46.655367",
+    "user_input": "qual o valor da causa",
+    "response": "O valor da causa é de 70.665,00."
+  },
+  {
+    "timestamp": "2025-03-26T11:14:52.057483",
+    "user_input": "qual a data da assinatura da petição inicial escrita no sumário na última página",
+    "response": "A petição inicial foi assinada em 07/08/2024."
+  },
+  {
+    "timestamp": "2025-03-26T11:15:17.424585",
+    "user_input": "e da habilitação",
+    "response": "A habilitação mencionada no documento pertence a Alessandro da Silva. Foi emitida em 23/01/2023 e tem validade até 20/01/2033. O número de registro da habilitação é W056 45865."
+  },
+  {
+    "timestamp": "2025-03-26T11:15:53.492569",
+    "user_input": "mas e a data da assinatura da habilitação escrita no sumário",
+    "response": "A data da assinatura da habilitação não é mencionada no documento."
+  },
+  {
+    "timestamp": "2025-03-26T11:16:24.596027",
+    "user_input": "dentro do sumário da última página",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T11:37:13.555858",
+    "user_input": "data da autuação?",
+    "response": "A data da autuação é 07/08/2024."
+  },
+  {
+    "timestamp": "2025-03-26T11:37:35.066718",
+    "user_input": "quais informações relevantes para a pericia criminal é relevante nesse documento?",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T11:38:35.610358",
+    "user_input": "NOME DO(S) RÉU(S)NOME DO(S) RÉU(S)",
+    "response": "O réu no processo é a ABV Comercio de Alimentos Ltda."
+  },
+  {
+    "timestamp": "2025-03-26T11:38:58.576260",
+    "user_input": "NOME DO AUTOR DO PROCESSONOME DO AUTOR DO PROCESSO",
+    "response": "O autor do processo é Alessandro da Silva."
+  },
+  {
+    "timestamp": "2025-03-26T11:39:08.665081",
+    "user_input": "NÚMERO DA AÇÃONÚMERO DA AÇÃO",
+    "response": "O número do processo é 00113469220245150056."
+  },
+  {
+    "timestamp": "2025-03-26T11:39:22.731915",
+    "user_input": "NOME DO MÉDICO PERITONOME DO MÉDICO PERITO",
+    "response": "O nome do médico perito é Mauro Lopes Garcia Filho."
+  },
+  {
+    "timestamp": "2025-03-26T11:40:29.684266",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "A perícia médica foi realizada no dia 29 de novembro de 2024, às 11h, na sede da Vara do Trabalho localizada na Rua Corumbá, nº 901, bairro Stella Maris."
+  },
+  {
+    "timestamp": "2025-03-26T11:40:58.345178",
+    "user_input": "NOME DA CIDADE DE PROCEDÊNCIA DA VARA, DATA DA REALIZAÇÃO DA PERÍCIA",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T11:41:42.627568",
+    "user_input": "IDENTIFICAÇÃO DO RECLAMANTE",
+    "response": "O reclamante é Alessandro da Silva, CPF 44805645865."
+  },
+  {
+    "timestamp": "2025-03-26T11:42:00.206557",
+    "user_input": "ALEGAÇÃO DO/A RECLAMANTE",
+    "response": "O documento não fornece informações específicas sobre a alegação do reclamante."
+  },
+  {
+    "timestamp": "2025-03-26T11:42:12.835717",
+    "user_input": "IDENTIFICAÇÃO DA RECLAMADA",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T11:42:29.563890",
+    "user_input": "ALEGAÇÃO DA RECLAMADA",
+    "response": "A reclamada alega que o reclamante está alterando a verdade dos fatos e usando o processo para obter vantagem ilícita. Por isso, ela pede que o reclamante seja penalizado com uma multa e seja responsabilizado pelos prejuízos causados à parte contrária, conforme estabelecido pelo artigo 793c da CLT. Além disso, a reclamada contesta a pretensão do autor de que a empresa seja condenada ao pagamento de honorários de sucumbência de 15%, argumentando que não há fundamento para tal condenação."
+  },
+  {
+    "timestamp": "2025-03-26T12:30:41.583672",
+    "user_input": "nome do autor principal?",
+    "response": "O autor principal é Alessandro da Silva."
+  },
+  {
+    "timestamp": "2025-03-26T12:30:57.413768",
+    "user_input": "data da autuação?",
+    "response": "A data da autuação é 07/08/2024."
+  },
+  {
+    "timestamp": "2025-03-26T12:31:21.111682",
+    "user_input": "DIAS DE TRABALHO NA SEMANA OU TIPO DE ESCALA E HORÁRIO DE TRABALHO",
+    "response": "O documento não fornece informações claras sobre os dias específicos de trabalho na semana ou o tipo de escala. No entanto, ele menciona vários horários de trabalho, que variam bastante. Alguns exemplos incluem 1320-1548-1748-2241, 1320-1739-1939-2240, 1320-1745-1945-2240, entre outros. Esses horários parecem indicar início e término de turnos de trabalho, mas sem informações adicionais, é difícil determinar a escala exata ou os dias específicos de trabalho na semana."
+  },
+  {
+    "timestamp": "2025-03-26T12:34:28.735183",
+    "user_input": "Quais foram os Exames realizados ?",
+    "response": "Os documentos fornecem informações sobre a solicitação de exames de sorologia para dengue e um exame clínico realizado devido a um corte na perna esquerda do paciente após um acidente. No entanto, não há detalhes específicos sobre outros exames realizados."
+  },
+  {
+    "timestamp": "2025-03-26T12:35:05.274283",
+    "user_input": "CURSOS QUE O RECLAMANTE FOI SUBMETIDO\tCURSOS QUE O RECLAMANTE FOI SUBMETIDO\t?",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T12:35:25.401793",
+    "user_input": "CURSOS QUE O RECLAMANTE FOI SUBMETIDO ",
+    "response": "O documento não fornece detalhes específicos sobre quais cursos o reclamante foi submetido. Ele apenas menciona que o reclamante foi submetido a um procedimento de integração, além de cursos e orientações sobre medidas de saúde e segurança no trabalho de acordo com os riscos inerentes à função que ocupou."
+  },
+  {
+    "timestamp": "2025-03-26T12:35:42.879097",
+    "user_input": "quais são os nomes dos reus ?",
+    "response": "O réu neste caso é a ABV Comércio de Alimentos Ltda."
+  },
+  {
+    "timestamp": "2025-03-26T12:35:56.249582",
+    "user_input": "nome da cidade ?",
+    "response": "A cidade é Andradina."
+  },
+  {
+    "timestamp": "2025-03-26T12:36:12.071649",
+    "user_input": "identificação do reclamante ?",
+    "response": "O reclamante é Alessandro da Silva, CPF 44805645865."
+  },
+  {
+    "timestamp": "2025-03-26T12:36:39.927014",
+    "user_input": "NOME DA FUNÇÃO QUE O RECLAMANTE DESEMPENHAVA NA RECLAMADA\t",
+    "response": "O reclamante desempenhava a função de açougueiro na reclamada."
+  },
+  {
+    "timestamp": "2025-03-26T12:37:06.778785",
+    "user_input": "qual o nome da vara + autor do processo ?",
+    "response": "O nome da vara é Andradina e o autor do processo é Alessandro da Silva."
+  },
+  {
+    "timestamp": "2025-03-26T12:37:28.464121",
+    "user_input": "DATA EM QUE O/A RECLAMANTE FOI DEMITIDO",
+    "response": "O reclamante encerrou o contrato em 27/04/2024."
+  },
+  {
+    "timestamp": "2025-03-26T12:37:52.607109",
+    "user_input": "ANTECEDENTES PREVIDENCIÁRIOS",
+    "response": "O reclamante não recebe nenhum benefício previdenciário."
+  },
+  {
+    "timestamp": "2025-03-26T12:38:43.487618",
+    "user_input": "QUal o nome do médico perito ?",
+    "response": "O nome do médico perito é Mauro Lopes Garcia Filho."
+  },
+  {
+    "timestamp": "2025-03-26T15:11:31.837150",
+    "user_input": "NOME DA VARA",
+    "response": "A vara é a Vara do Trabalho de Andradina."
+  },
+  {
+    "timestamp": "2025-03-26T15:11:47.085755",
+    "user_input": "data da autuação?",
+    "response": "A data da autuação é 07/08/2024."
+  },
+  {
+    "timestamp": "2025-03-26T15:16:23.339933",
+    "user_input": "NOME DA VARA",
+    "response": "A vara é a Vara do Trabalho de Andradina."
+  },
+  {
+    "timestamp": "2025-03-26T15:17:11.572776",
+    "user_input": "NÚMERO DA AÇÃO",
+    "response": "O número do processo é 00113469220245150056."
+  },
+  {
+    "timestamp": "2025-03-26T15:18:53.214937",
+    "user_input": "data da autuação?\n\n",
+    "response": "A data da autuação é 08/10/2024."
+  },
+  {
+    "timestamp": "2025-03-26T15:19:18.380325",
+    "user_input": "numero da ação",
+    "response": "O número da ação é 00243405020245240106."
+  },
+  {
+    "timestamp": "2025-03-26T15:19:40.185503",
+    "user_input": "qual a tramitação preferencial",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T15:19:58.135962",
+    "user_input": "qual o valor da caus",
+    "response": "O valor da causa é de 98.182,88."
+  },
+  {
+    "timestamp": "2025-03-26T15:20:13.881730",
+    "user_input": "réu",
+    "response": "O réu, também referido como Reclamada, não é especificado no documento."
+  },
+  {
+    "timestamp": "2025-03-26T15:20:40.773864",
+    "user_input": "quem é o autor e o advogado",
+    "response": "O autor é Alessandro da Silva e o advogado dele é Diego Demico Maximo, OAB 265580."
+  },
+  {
+    "timestamp": "2025-03-26T17:28:24.312806",
+    "user_input": "autor principal?",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-26T17:29:04.118406",
+    "user_input": "numero do processo",
+    "response": "O número do processo é 00243405020245240106."
+  },
+  {
+    "timestamp": "2025-03-26T17:29:26.088083",
+    "user_input": "qual é o autor principal?",
+    "response": "O documento não fornece informações suficientes para identificar o autor principal."
+  },
+  {
+    "timestamp": "2025-03-26T17:31:10.153200",
+    "user_input": "quem é o autor?",
+    "response": "O autor do documento é Thiago Kusunoki Ferachin."
+  },
+  {
+    "timestamp": "2025-03-27T14:39:58.015020",
+    "user_input": "numero do autor principal",
+    "response": "O número do autor principal, Eliane Rodrigues da Silva, é 11969367223."
+  },
+  {
+    "timestamp": "2025-03-27T14:41:32.504937",
+    "user_input": "qual o cpf dela",
+    "response": "O CPF de Eliane Rodrigues da Silva é 01855912139."
+  },
+  {
+    "timestamp": "2025-03-27T14:43:31.195182",
+    "user_input": "me traz informações importantes para o agente pericial",
+    "response": "As informações importantes para o agente pericial incluem:\n\n1. O perito nomeado é o Dr. Carlos Alberto Macedo de Oliveira, médico do trabalho/ortopedista.\n2. As partes devem indicar assistentes técnicos e apresentar seus quesitos até o dia 29/01/2025.\n3. O perito deve apresentar o laudo pericial no prazo de 15 dias após a realização da perícia, que deve ser feita no prazo máximo de 30 dias a partir da intimação da apresentação dos quesitos pelas partes.\n4. Se necessário, o perito está autorizado a proceder com uma vistoria nos locais/setores de trabalho do reclamante para verificar as atividades desenvolvidas.\n5. O perito deve informar o juízo sobre os locais, datas e horários da realização das perícias com antecedência mínima de 10 dias.\n6. Se houver necessidade de exames complementares, o perito deve informar o juízo e anexar os resultados aos autos.\n7. Em caso de impossibilidade de comparecimento do reclamante na perícia agendada, o motivo deve ser comprovado nos autos até o início da perícia."
+  },
+  {
+    "timestamp": "2025-03-27T14:47:43.738669",
+    "user_input": "quem é o advogado de Eliane",
+    "response": "Não encontrei essa informação no documento."
+  },
+  {
+    "timestamp": "2025-03-28T11:23:18.036214",
+    "user_input": "Nome do autor principal?",
+    "response": "O nome do autor principal (reclamante) não foi fornecido no documento.\n\n📌 Fontes citadas:\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\""
+  },
+  {
+    "timestamp": "2025-03-28T11:23:18.060777",
+    "user_input": "Nome do autor principal?",
+    "response": "O nome do autor principal (reclamante) não foi fornecido no documento.\n\n📌 Fontes citadas:\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\""
+  },
+  {
+    "timestamp": "2025-03-28T11:31:23.596140",
+    "user_input": "nome do autor principal?",
+    "response": "Não encontrei essa informação no documento.\n\n📌 Fontes citadas:\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\"\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\"\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\""
+  },
+  {
+    "timestamp": "2025-03-28T11:31:23.633129",
+    "user_input": "nome do autor principal?",
+    "response": "Não encontrei essa informação no documento.\n\n📌 Fontes citadas:\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\"\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\"\nTrecho 'Trecho 342': \"no 18401567   pcmg inscrito no cpf sob no 070852806 62 residente e domiciliado na rua felicio abrao ...\""
+  },
+  {
+    "timestamp": "2025-03-28T11:44:04.799419",
+    "user_input": "Nome do autor?\n",
+    "response": "Não encontrei essa informação no documento.\n\n📌 Fontes citadas:\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\""
+  },
+  {
+    "timestamp": "2025-03-28T11:44:04.842390",
+    "user_input": "Nome do autor?\n",
+    "response": "Não encontrei essa informação no documento.\n\n📌 Fontes citadas:\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\"\nTrecho 'Trecho 6': \"ce com voce todos conseguem menos endereco escritorio rua antonio barbosa 871 frente ao forum de fat...\""
+  },
+  {
+    "timestamp": "2025-03-28T14:24:52.613809",
+    "user_input": "nome do autor principal?\n",
+    "response": "O autor principal do documento é Eliane Rodrigues da Silva."
+  },
+  {
+    "timestamp": "2025-03-28T14:24:52.640794",
+    "user_input": "nome do autor principal?\n",
+    "response": "O autor principal do documento é Eliane Rodrigues da Silva."
+  },
+  {
+    "timestamp": "2025-03-28T14:30:51.378259",
+    "user_input": "quem é o advogado da Eliane?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin, OAB/MS 11645."
+  },
+  {
+    "timestamp": "2025-03-28T14:30:51.414119",
+    "user_input": "quem é o advogado da Eliane?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin, OAB/MS 11645."
+  },
+  {
+    "timestamp": "2025-03-28T14:31:26.414004",
+    "user_input": "e o advogado do Réu?",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T14:31:26.457173",
+    "user_input": "e o advogado do Réu?",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T14:31:37.456534",
+    "user_input": "quem é o réu?",
+    "response": "O réu é Tango Sport Ltda-ME."
+  },
+  {
+    "timestamp": "2025-03-28T14:31:37.496213",
+    "user_input": "quem é o réu?",
+    "response": "O réu é Tango Sport Ltda-ME."
+  },
+  {
+    "timestamp": "2025-03-28T14:31:52.749605",
+    "user_input": "e o advogado?\n",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T14:31:52.775943",
+    "user_input": "e o advogado?\n",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T14:32:28.923329",
+    "user_input": "quem é o advogado do réu?",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T14:32:28.962917",
+    "user_input": "quem é o advogado do réu?",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T16:07:44.562209",
+    "user_input": "nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-28T16:07:44.594452",
+    "user_input": "nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-28T16:07:58.781278",
+    "user_input": "quem é o advogado dela?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin, inscrito na OAB/MS sob o nº 11.645."
+  },
+  {
+    "timestamp": "2025-03-28T16:07:58.810586",
+    "user_input": "quem é o advogado dela?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin, inscrito na OAB/MS sob o nº 11.645."
+  },
+  {
+    "timestamp": "2025-03-28T16:08:16.222603",
+    "user_input": "e quem é o Réu?",
+    "response": "O réu é a Tango Sport Ltda-ME."
+  },
+  {
+    "timestamp": "2025-03-28T16:08:16.251479",
+    "user_input": "e quem é o Réu?",
+    "response": "O réu é a Tango Sport Ltda-ME."
+  },
+  {
+    "timestamp": "2025-03-28T16:08:31.547519",
+    "user_input": "e o advogado do Réu?",
+    "response": "O advogado da Tango Sport Ltda-ME é Nildo Valentin da Costa, OAB 37331/PR."
+  },
+  {
+    "timestamp": "2025-03-28T16:08:31.574214",
+    "user_input": "e o advogado do Réu?",
+    "response": "O advogado da Tango Sport Ltda-ME é Nildo Valentin da Costa, OAB 37331/PR."
+  },
+  {
+    "timestamp": "2025-03-28T16:11:30.972090",
+    "user_input": "Eu falo do advogado do Réu que aparece na primeira folha do documento",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T16:11:31.000486",
+    "user_input": "Eu falo do advogado do Réu que aparece na primeira folha do documento",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T16:11:55.207688",
+    "user_input": "Qual é a tramitação preferencial do documento",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T16:11:55.233468",
+    "user_input": "Qual é a tramitação preferencial do documento",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-28T16:12:20.032231",
+    "user_input": "Qual o valor da causa?\n",
+    "response": "98.182,88"
+  },
+  {
+    "timestamp": "2025-03-28T16:12:20.071622",
+    "user_input": "Qual o valor da causa?\n",
+    "response": "98.182,88"
+  },
+  {
+    "timestamp": "2025-03-28T16:55:53.045446",
+    "user_input": "qual o nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-28T16:55:53.087794",
+    "user_input": "qual o nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-28T16:56:08.101020",
+    "user_input": "e do advogado dela?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin."
+  },
+  {
+    "timestamp": "2025-03-28T16:56:08.124046",
+    "user_input": "e do advogado dela?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin."
+  },
+  {
+    "timestamp": "2025-03-28T16:56:28.415454",
+    "user_input": "e o nome do Réu?",
+    "response": "O réu é Tango Sport LTDA - ME."
+  },
+  {
+    "timestamp": "2025-03-28T16:56:28.451410",
+    "user_input": "e o nome do Réu?",
+    "response": "O réu é Tango Sport LTDA - ME."
+  },
+  {
+    "timestamp": "2025-03-28T16:56:42.608720",
+    "user_input": "e o do advogado?",
+    "response": "O advogado do réu é Alciana Reolon Sanches."
+  },
+  {
+    "timestamp": "2025-03-28T16:56:42.632967",
+    "user_input": "e o do advogado?",
+    "response": "O advogado do réu é Alciana Reolon Sanches."
+  },
+  {
+    "timestamp": "2025-03-28T16:57:04.996963",
+    "user_input": "numero da OAB dela?",
+    "response": "A advogada Alciana Reolon Sanches tem o número de inscrição na OAB MS 11645."
+  },
+  {
+    "timestamp": "2025-03-28T16:57:05.019299",
+    "user_input": "numero da OAB dela?",
+    "response": "A advogada Alciana Reolon Sanches tem o número de inscrição na OAB MS 11645."
+  }
+]
