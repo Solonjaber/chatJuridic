@@ -468,5 +468,335 @@
     "timestamp": "2025-03-28T16:57:05.019299",
     "user_input": "numero da OAB dela?",
     "response": "A advogada Alciana Reolon Sanches tem o número de inscrição na OAB MS 11645."
+  },
+  {
+    "timestamp": "2025-03-29T18:32:53.278186",
+    "user_input": "nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-29T18:32:53.291675",
+    "user_input": "nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-29T18:37:16.144477",
+    "user_input": "nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-29T18:37:16.160209",
+    "user_input": "nome do autor principal?",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-29T18:37:25.322550",
+    "user_input": "quem é o advogado dela?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin, inscrito na OAB/MS sob o nº 11.645."
+  },
+  {
+    "timestamp": "2025-03-29T18:37:25.341108",
+    "user_input": "quem é o advogado dela?",
+    "response": "O advogado de Eliane Rodrigues da Silva é Thiago Kusunoki Ferachin, inscrito na OAB/MS sob o nº 11.645."
+  },
+  {
+    "timestamp": "2025-03-29T18:37:58.232610",
+    "user_input": "e quem é o réu?",
+    "response": "O réu no caso envolvendo Eliane Rodrigues da Silva é a Tango Sport LTDA - ME."
+  },
+  {
+    "timestamp": "2025-03-29T18:37:58.247374",
+    "user_input": "e quem é o réu?",
+    "response": "O réu no caso envolvendo Eliane Rodrigues da Silva é a Tango Sport LTDA - ME."
+  },
+  {
+    "timestamp": "2025-03-29T18:38:11.652427",
+    "user_input": "e o advogado do réu?",
+    "response": "O advogado da Tango Sport LTDA - ME é Nildo Valentin da Costa, inscrito na OAB sob o número 37331/PR."
+  },
+  {
+    "timestamp": "2025-03-29T18:38:11.667362",
+    "user_input": "e o advogado do réu?",
+    "response": "O advogado da Tango Sport LTDA - ME é Nildo Valentin da Costa, inscrito na OAB sob o número 37331/PR."
+  },
+  {
+    "timestamp": "2025-03-29T18:38:38.773141",
+    "user_input": "você errou, não é esse o advogado",
+    "response": "Não posso confirmar se cometi um erro sem uma pergunta específica. Por favor, forneça mais detalhes ou faça uma pergunta específica."
+  },
+  {
+    "timestamp": "2025-03-29T18:38:38.786228",
+    "user_input": "você errou, não é esse o advogado",
+    "response": "Não posso confirmar se cometi um erro sem uma pergunta específica. Por favor, forneça mais detalhes ou faça uma pergunta específica."
+  },
+  {
+    "timestamp": "2025-03-29T18:39:04.762652",
+    "user_input": "o advogado do réu que é apresentado na primeira folha do documento",
+    "response": "O advogado do réu, Tango Sport LTDA - ME, é Alciana Reolon Sanches, inscrita na OAB sob o número MS 11645."
+  },
+  {
+    "timestamp": "2025-03-29T18:39:04.778206",
+    "user_input": "o advogado do réu que é apresentado na primeira folha do documento",
+    "response": "O advogado do réu, Tango Sport LTDA - ME, é Alciana Reolon Sanches, inscrita na OAB sob o número MS 11645."
+  },
+  {
+    "timestamp": "2025-03-29T18:40:09.532437",
+    "user_input": "o numero da OAB da Alciana Reolon Sanches não é esse",
+    "response": "Sim, está correto. A advogada Alciana Reolon Sanches não possui o número de OAB MS 11645. A informação sobre o número de OAB dela não foi fornecida no documento."
+  },
+  {
+    "timestamp": "2025-03-29T18:40:09.553014",
+    "user_input": "o numero da OAB da Alciana Reolon Sanches não é esse",
+    "response": "Sim, está correto. A advogada Alciana Reolon Sanches não possui o número de OAB MS 11645. A informação sobre o número de OAB dela não foi fornecida no documento."
+  },
+  {
+    "timestamp": "2025-03-29T18:40:43.691503",
+    "user_input": "acredito que esteja na folha 98 do documento no trecho \"Requer finalmente, que todas as intimações sejam\n\nrealizadas em nome da advogada ALCIANA REOLON SANCHES BUENO...\"",
+    "response": "Não, o número da OAB da advogada Alciana Reolon Sanches Bueno não está na folha 98 do documento."
+  },
+  {
+    "timestamp": "2025-03-29T18:40:43.703397",
+    "user_input": "acredito que esteja na folha 98 do documento no trecho \"Requer finalmente, que todas as intimações sejam\n\nrealizadas em nome da advogada ALCIANA REOLON SANCHES BUENO...\"",
+    "response": "Não, o número da OAB da advogada Alciana Reolon Sanches Bueno não está na folha 98 do documento."
+  },
+  {
+    "timestamp": "2025-03-29T18:41:07.042589",
+    "user_input": "Requer finalmente, que todas as intimações sejam\n\nrealizadas em nome da advogada ALCIANA REOLON SANCHES BUENO, OAB/PR\n\n47.785, sob pena de nulidade.",
+    "response": "Sim, a advogada Alciana Reolon Sanches Bueno, que representa a Tango Sport LTDA - ME, possui o número de inscrição OAB/PR 47.785."
+  },
+  {
+    "timestamp": "2025-03-29T18:41:07.057282",
+    "user_input": "Requer finalmente, que todas as intimações sejam\n\nrealizadas em nome da advogada ALCIANA REOLON SANCHES BUENO, OAB/PR\n\n47.785, sob pena de nulidade.",
+    "response": "Sim, a advogada Alciana Reolon Sanches Bueno, que representa a Tango Sport LTDA - ME, possui o número de inscrição OAB/PR 47.785."
+  },
+  {
+    "timestamp": "2025-03-29T18:43:45.873820",
+    "user_input": "NOME DA VARA",
+    "response": "Fátima do Sul"
+  },
+  {
+    "timestamp": "2025-03-29T18:43:45.890352",
+    "user_input": "NOME DA VARA",
+    "response": "Fátima do Sul"
+  },
+  {
+    "timestamp": "2025-03-29T18:44:18.522459",
+    "user_input": "NÚMERO DA AÇÃO",
+    "response": "O número da ação é 00243405020245240106."
+  },
+  {
+    "timestamp": "2025-03-29T18:44:18.533565",
+    "user_input": "NÚMERO DA AÇÃO",
+    "response": "O número da ação é 00243405020245240106."
+  },
+  {
+    "timestamp": "2025-03-29T18:44:33.942138",
+    "user_input": "NOME DO AUTOR DO PROCESSO",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-29T18:44:33.955591",
+    "user_input": "NOME DO AUTOR DO PROCESSO",
+    "response": "Eliane Rodrigues da Silva"
+  },
+  {
+    "timestamp": "2025-03-29T18:44:44.632457",
+    "user_input": "NOME DO(S) RÉU(S)",
+    "response": "O réu é Tango Sport LTDA - ME."
+  },
+  {
+    "timestamp": "2025-03-29T18:44:44.643847",
+    "user_input": "NOME DO(S) RÉU(S)",
+    "response": "O réu é Tango Sport LTDA - ME."
+  },
+  {
+    "timestamp": "2025-03-29T18:44:53.337304",
+    "user_input": "NOME DO MÉDICO PERITO",
+    "response": "O nome do médico perito é Dr. Carlos Alberto Macedo de Oliveira."
+  },
+  {
+    "timestamp": "2025-03-29T18:44:53.352411",
+    "user_input": "NOME DO MÉDICO PERITO",
+    "response": "O nome do médico perito é Dr. Carlos Alberto Macedo de Oliveira."
+  },
+  {
+    "timestamp": "2025-03-29T18:45:43.622427",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-29T18:45:43.644821",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "Informação não encontrada no documento."
+  },
+  {
+    "timestamp": "2025-03-29T18:46:08.462402",
+    "user_input": "tem certeza? Não quer verificar novamente?",
+    "response": "Desculpe, mas não posso responder a essa pergunta sem um contexto específico. Por favor, forneça mais detalhes ou faça uma pergunta específica."
+  },
+  {
+    "timestamp": "2025-03-29T18:46:08.473170",
+    "user_input": "tem certeza? Não quer verificar novamente?",
+    "response": "Desculpe, mas não posso responder a essa pergunta sem um contexto específico. Por favor, forneça mais detalhes ou faça uma pergunta específica."
+  },
+  {
+    "timestamp": "2025-03-29T18:53:57.232297",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "O documento não fornece uma data, hora e local específicos para a realização da perícia médica. No entanto, estabelece que o perito nomeado, Dr. Carlos Alberto Macedo de Oliveira, deve informar ao Juízo sobre o local, data e horário com antecedência mínima de 10 dias, para que as partes possam ser intimadas e acompanhar os trabalhos periciais. Além disso, o perito tem a autorização para realizar vistorias nos locais/setores de trabalho do reclamante, se necessário para a conclusão pericial."
+  },
+  {
+    "timestamp": "2025-03-29T18:53:57.251246",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "O documento não fornece uma data, hora e local específicos para a realização da perícia médica. No entanto, estabelece que o perito nomeado, Dr. Carlos Alberto Macedo de Oliveira, deve informar ao Juízo sobre o local, data e horário com antecedência mínima de 10 dias, para que as partes possam ser intimadas e acompanhar os trabalhos periciais. Além disso, o perito tem a autorização para realizar vistorias nos locais/setores de trabalho do reclamante, se necessário para a conclusão pericial."
+  },
+  {
+    "timestamp": "2025-03-29T18:59:19.062391",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "A perícia médica foi realizada no dia 29 de novembro de 2024, às 11h, na Vara do Trabalho de Andradina, situada na Rua Corumbá, nº 901, Bairro Stella Maris."
+  },
+  {
+    "timestamp": "2025-03-29T18:59:19.082566",
+    "user_input": "DATA, HORA E LOCAL DA REALIZAÇÃO DA PERÍCIA MÉDICA",
+    "response": "A perícia médica foi realizada no dia 29 de novembro de 2024, às 11h, na Vara do Trabalho de Andradina, situada na Rua Corumbá, nº 901, Bairro Stella Maris."
+  },
+  {
+    "timestamp": "2025-03-29T19:00:02.493417",
+    "user_input": "NOME DA CIDADE DE PROCEDÊNCIA DA VARA, DATA DA REALIZAÇÃO DA PERÍCIA",
+    "response": "A Vara do Trabalho é originária da cidade de Andradina. A perícia médica foi realizada no dia 29 de novembro de 2024."
+  },
+  {
+    "timestamp": "2025-03-29T19:00:02.511405",
+    "user_input": "NOME DA CIDADE DE PROCEDÊNCIA DA VARA, DATA DA REALIZAÇÃO DA PERÍCIA",
+    "response": "A Vara do Trabalho é originária da cidade de Andradina. A perícia médica foi realizada no dia 29 de novembro de 2024."
+  },
+  {
+    "timestamp": "2025-03-29T19:00:56.252274",
+    "user_input": "IDENTIFICAÇÃO DO RECLAMANTE",
+    "response": "O reclamante é Alessandro da Silva, com CPF 448.056.458-65."
+  },
+  {
+    "timestamp": "2025-03-29T19:00:56.265697",
+    "user_input": "IDENTIFICAÇÃO DO RECLAMANTE",
+    "response": "O reclamante é Alessandro da Silva, com CPF 448.056.458-65."
+  },
+  {
+    "timestamp": "2025-03-29T19:01:20.242442",
+    "user_input": "ALEGAÇÃO DO/A RECLAMANTE",
+    "response": "O reclamante, Alessandro da Silva, alega que sofreu um grave acidente de trabalho e, desde o ocorrido, a reclamada, ABV Comércio de Alimentos LTDA, passou a persegui-lo de várias formas, incluindo tratamento de silêncio por parte de seu encarregado, humilhações e ameaças veladas. Após o período de recuperação das lesões causadas pelo acidente, a empresa teria alterado seus horários de trabalho sem seu consentimento, com o objetivo de desajustar sua rotina. Além disso, o reclamante alega que a empresa o constrangeu a assinar um documento de rescisão do contrato de trabalho, informando que estava se desligando voluntariamente, quando na verdade a rescisão era indireta devido ao descumprimento das obrigações trabalhistas por parte da empresa. O reclamante busca a rescisão indireta do contrato de trabalho e o pagamento de todas as verbas rescisórias correspondentes."
+  },
+  {
+    "timestamp": "2025-03-29T19:01:20.260065",
+    "user_input": "ALEGAÇÃO DO/A RECLAMANTE",
+    "response": "O reclamante, Alessandro da Silva, alega que sofreu um grave acidente de trabalho e, desde o ocorrido, a reclamada, ABV Comércio de Alimentos LTDA, passou a persegui-lo de várias formas, incluindo tratamento de silêncio por parte de seu encarregado, humilhações e ameaças veladas. Após o período de recuperação das lesões causadas pelo acidente, a empresa teria alterado seus horários de trabalho sem seu consentimento, com o objetivo de desajustar sua rotina. Além disso, o reclamante alega que a empresa o constrangeu a assinar um documento de rescisão do contrato de trabalho, informando que estava se desligando voluntariamente, quando na verdade a rescisão era indireta devido ao descumprimento das obrigações trabalhistas por parte da empresa. O reclamante busca a rescisão indireta do contrato de trabalho e o pagamento de todas as verbas rescisórias correspondentes."
+  },
+  {
+    "timestamp": "2025-03-29T19:01:43.612337",
+    "user_input": "IDENTIFICAÇÃO DA RECLAMADA",
+    "response": "A reclamada é identificada como ABV Comercio de Alimentos LTDA, com o nome fantasia Levemax Superatacado Andradina. Ela está devidamente inscrita no CNPJ no 04.757.459/0022-10 e está situada na Av. Guanabara, 2758, Centro, na cidade de Andradina, SP, CEP 16901-000. Os contatos fornecidos são os emails contabil@grupoabv.com.br e os telefones 67 3410 7200 / 67 3410 7223."
+  },
+  {
+    "timestamp": "2025-03-29T19:01:43.632270",
+    "user_input": "IDENTIFICAÇÃO DA RECLAMADA",
+    "response": "A reclamada é identificada como ABV Comercio de Alimentos LTDA, com o nome fantasia Levemax Superatacado Andradina. Ela está devidamente inscrita no CNPJ no 04.757.459/0022-10 e está situada na Av. Guanabara, 2758, Centro, na cidade de Andradina, SP, CEP 16901-000. Os contatos fornecidos são os emails contabil@grupoabv.com.br e os telefones 67 3410 7200 / 67 3410 7223."
+  },
+  {
+    "timestamp": "2025-03-29T19:16:42.093379",
+    "user_input": "NOME DA VARA",
+    "response": "A vara mencionada no documento é a Vara do Trabalho de Ponta Porã."
+  },
+  {
+    "timestamp": "2025-03-29T19:16:42.110703",
+    "user_input": "NOME DA VARA",
+    "response": "A vara mencionada no documento é a Vara do Trabalho de Ponta Porã."
+  },
+  {
+    "timestamp": "2025-03-29T19:16:49.942206",
+    "user_input": "NÚMERO DA AÇÃO",
+    "response": "O número da ação é 00243891720245240066."
+  },
+  {
+    "timestamp": "2025-03-29T19:16:49.953330",
+    "user_input": "NÚMERO DA AÇÃO",
+    "response": "O número da ação é 00243891720245240066."
+  },
+  {
+    "timestamp": "2025-03-29T19:17:03.346433",
+    "user_input": "NOME DO AUTOR DO PROCESSO",
+    "response": "O autor do processo é Cleuza Vilhalba."
+  },
+  {
+    "timestamp": "2025-03-29T19:17:03.358407",
+    "user_input": "NOME DO AUTOR DO PROCESSO",
+    "response": "O autor do processo é Cleuza Vilhalba."
+  },
+  {
+    "timestamp": "2025-03-29T19:17:23.608831",
+    "user_input": "e o advogado?",
+    "response": "O advogado do autor, Cleuza Vilhalba, é Igor Vinicius Neves Preigschadt. O advogado do réu, ABV Comercio de Alimentos LTDA, é Ana Claudia Araujo Santos Sena."
+  },
+  {
+    "timestamp": "2025-03-29T19:17:23.623751",
+    "user_input": "e o advogado?",
+    "response": "O advogado do autor, Cleuza Vilhalba, é Igor Vinicius Neves Preigschadt. O advogado do réu, ABV Comercio de Alimentos LTDA, é Ana Claudia Araujo Santos Sena."
+  },
+  {
+    "timestamp": "2025-03-29T19:17:56.316541",
+    "user_input": "quem é o perito?",
+    "response": "O perito nomeado para o processo é o Dr. Sergio Luis Boretti dos Santos."
+  },
+  {
+    "timestamp": "2025-03-29T19:17:56.335331",
+    "user_input": "quem é o perito?",
+    "response": "O perito nomeado para o processo é o Dr. Sergio Luis Boretti dos Santos."
+  },
+  {
+    "timestamp": "2025-03-29T19:18:18.581659",
+    "user_input": "me informe todos os advogados do autor",
+    "response": "Os advogados do autor, Cleuza Vilhalba, são:\n\n1. Igor Vinicius Neves Preigschadt, inscrito na OAB/RS sob o nº 91466.\n2. Tarcisio Bordin de Medeiros, inscrito na OAB/RS sob o nº 89294.\n3. João Victor Ciancio, inscrito na OAB/MS sob o nº 23631."
+  },
+  {
+    "timestamp": "2025-03-29T19:18:18.604025",
+    "user_input": "me informe todos os advogados do autor",
+    "response": "Os advogados do autor, Cleuza Vilhalba, são:\n\n1. Igor Vinicius Neves Preigschadt, inscrito na OAB/RS sob o nº 91466.\n2. Tarcisio Bordin de Medeiros, inscrito na OAB/RS sob o nº 89294.\n3. João Victor Ciancio, inscrito na OAB/MS sob o nº 23631."
+  },
+  {
+    "timestamp": "2025-03-29T19:18:45.607595",
+    "user_input": "falta o Elisson?",
+    "response": "Sim, Elisson Rosa de Quadros, inscrito na OAB/RS sob o número 99309, é um dos advogados representando o autor, Cleuza Vilhalba. Ele foi substabelecido com reserva de poderes por João Victor Ciancio, inscrito na OAB/MS sob o número 23631, conforme mencionado no documento. Portanto, ele deveria estar na lista de advogados do autor."
+  },
+  {
+    "timestamp": "2025-03-29T19:18:45.625374",
+    "user_input": "falta o Elisson?",
+    "response": "Sim, Elisson Rosa de Quadros, inscrito na OAB/RS sob o número 99309, é um dos advogados representando o autor, Cleuza Vilhalba. Ele foi substabelecido com reserva de poderes por João Victor Ciancio, inscrito na OAB/MS sob o número 23631, conforme mencionado no documento. Portanto, ele deveria estar na lista de advogados do autor."
+  },
+  {
+    "timestamp": "2025-03-29T19:20:05.742593",
+    "user_input": "o correto do tarcisio é:  Tarcísio Bordin\n\nde Medeiros - OAB/MS n.º 18.677",
+    "response": "Sim, o número da OAB de Tarcísio Bordin de Medeiros é 18.677."
+  },
+  {
+    "timestamp": "2025-03-29T19:20:05.767203",
+    "user_input": "o correto do tarcisio é:  Tarcísio Bordin\n\nde Medeiros - OAB/MS n.º 18.677",
+    "response": "Sim, o número da OAB de Tarcísio Bordin de Medeiros é 18.677."
+  },
+  {
+    "timestamp": "2025-03-29T19:20:20.570942",
+    "user_input": "NOME DO MÉDICO PERITO",
+    "response": "O médico perito nomeado pelo juízo é o Dr. Sergio Luis Boretti dos Santos."
+  },
+  {
+    "timestamp": "2025-03-29T19:20:20.580949",
+    "user_input": "NOME DO MÉDICO PERITO",
+    "response": "O médico perito nomeado pelo juízo é o Dr. Sergio Luis Boretti dos Santos."
+  },
+  {
+    "timestamp": "2025-03-29T19:20:57.830608",
+    "user_input": "ANTECEDENTES PREVIDENCIÁRIOS",
+    "response": "Os antecedentes previdenciários da parte autora, Cleuza Vilhalba, são detalhados ao longo do documento. Ela teve vários períodos de auxílio-doença previdenciário, conforme listado abaixo:\n\n1. Benefício com início em 07/04/2021 e término em 11/11/2021.\n2. Benefício com início em 06/12/2021 e término em 05/12/2024.\n3. Benefício com início em 21/11/2020 e término em 30/12/2020.\n\nAlém disso, o documento menciona vários períodos de contribuição e remuneração, bem como a existência de vínculos trabalhistas em diferentes períodos. No entanto, sem uma pergunta mais específica, é difícil detalhar todos os antecedentes previdenciários mencionados no documento."
+  },
+  {
+    "timestamp": "2025-03-29T19:20:57.849718",
+    "user_input": "ANTECEDENTES PREVIDENCIÁRIOS",
+    "response": "Os antecedentes previdenciários da parte autora, Cleuza Vilhalba, são detalhados ao longo do documento. Ela teve vários períodos de auxílio-doença previdenciário, conforme listado abaixo:\n\n1. Benefício com início em 07/04/2021 e término em 11/11/2021.\n2. Benefício com início em 06/12/2021 e término em 05/12/2024.\n3. Benefício com início em 21/11/2020 e término em 30/12/2020.\n\nAlém disso, o documento menciona vários períodos de contribuição e remuneração, bem como a existência de vínculos trabalhistas em diferentes períodos. No entanto, sem uma pergunta mais específica, é difícil detalhar todos os antecedentes previdenciários mencionados no documento."
   }
 ]

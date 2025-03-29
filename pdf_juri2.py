@@ -275,10 +275,10 @@ def rerank_semantically(question: str, documents: list[Document]) -> list[Docume
     # Logging para depuração
     logging.info(f"[RERANKING] Pergunta expandida: {expanded_question}")
     for i, (doc, score) in enumerate(ranked[:3]):
-        logging.info(f"[RERANKING] Doc {i+1}, Score: {score:.4f}, Preview: {doc[:80]}...")
-
+        logging.info(f"[RERANKING] Doc {i+1}, Score: {score:.4f}, Preview: {doc.page_content[:80]}...")
         
     return [doc for doc, _ in ranked]
+
 
 def extract_explicit_metadata(text: str) -> dict:
     metadata = {}
@@ -352,6 +352,7 @@ def format_metadata_for_prompt(metadata: dict) -> str:
         return "Nenhum metadado detectado."
     return "\n".join([f"{k.replace('_', ' ').capitalize()}: {v}" for k, v in metadata.items()])
 
+
 def build_adaptive_prompt(query: str, metadata: dict):
     """Cria um prompt adaptativo baseado no tipo de pergunta do usuário"""
     metadata_str = format_metadata_for_prompt(metadata)
@@ -365,6 +366,7 @@ def build_adaptive_prompt(query: str, metadata: dict):
     if any(term in query_lower for term in ["autor", "reclamante", "requerente", "parte"]):
         specific_instructions = """
         Ao responder sobre partes do processo:
+        - Se a informação exata **não estiver disponível**, mas houver **qualquer menção relacionada**, **nunca responda apenas "informação não encontrada"**. Explique, com base no documento, o que é mencionado sobre o tema da pergunta.
         - Forneça apenas nomes completos, sem explicações adicionais
         - Se houver qualificação como CPF ou RG, inclua apenas se explicitamente solicitado
         - Seja extremamente conciso
@@ -378,10 +380,11 @@ def build_adaptive_prompt(query: str, metadata: dict):
         """
     elif any(term in query_lower for term in ["data", "prazo", "audiência", "perícia"]):
         specific_instructions = """
-        Ao responder sobre datas e prazos:
-        - Forneça apenas a data e o evento correspondente
-        - Use formato curto e direto
-        - Seja extremamente conciso
+        Ao responder sobre datas, prazos e perícias:
+        - Se a informação exata não estiver disponível, explique o que o documento menciona sobre o assunto
+        - Informe sobre determinações, procedimentos ou instruções relacionadas no documento
+        - Cite trechos relevantes que mencionem como a informação será definida ou comunicada
+        - Seja claro e informativo, mesmo quando a resposta direta não estiver presente
         """
     elif any(term in query_lower for term in ["valor", "causa", "condenação", "indenização", "dano"]):
         specific_instructions = """
@@ -392,9 +395,14 @@ def build_adaptive_prompt(query: str, metadata: dict):
         """
     
     system_template = f"""
-    Você é um assistente jurídico especializado em análise de documentos periciais. Use exclusivamente as informações fornecidas no contexto para responder às perguntas do usuário sobre o documento PDF enviado.
+    Você é um assistente jurídico especializado em análise de documentos periciais. Use as informações fornecidas no contexto para responder às perguntas do usuário sobre o documento PDF enviado.
 
     Se a informação estiver presente no documento, forneça uma resposta direta e objetiva.
+    
+⚠️ Se a informação **não estiver explicitamente presente**, siga esta diretriz:
+    - Explique se há previsão, instrução ou citação indireta sobre o tema.
+    - Especifique qual parte do documento trata do assunto, mesmo que a resposta não seja conclusiva.
+    - Use linguagem precisa e técnica, mas sempre com clareza e empatia pericial.
 
     IMPORTANTE: Você deve entender o contexto jurídico brasileiro e a terminologia legal. Em documentos jurídicos:
     - Diferentes termos podem se referir às mesmas partes processuais
@@ -408,14 +416,10 @@ def build_adaptive_prompt(query: str, metadata: dict):
     Pergunta: "Qual o valor da causa?"
     Resposta: "R$ 50.000,00"
     
-    Se a resposta não estiver presente no conteúdo, diga apenas:
-    \"Informação não encontrada no documento.\"
+    Pergunta: "Quando será realizada a perícia?"
+    Resposta: "O documento não especifica a data exata da perícia, mas determina que o perito nomeado (Dr. Carlos Alberto) deverá informar ao Juízo sobre o local, data e horário com antecedência mínima de 10 dias, para que as partes possam ser intimadas e acompanhar os trabalhos periciais."
 
     Responda de forma objetiva, clara e precisa, considerando o ponto de vista técnico de um agente pericial.
-
-    NÃO INCLUA TRECHOS DO DOCUMENTO EM SUA RESPOSTA.
-    NÃO INCLUA EXPLICAÇÕES SOBRE COMO ENCONTROU A INFORMAÇÃO.
-    NÃO USE FRASES INTRODUTÓRIAS COMO "De acordo com o documento" ou "Conforme mencionado".
 
     {specific_instructions}
 
@@ -429,7 +433,6 @@ def build_adaptive_prompt(query: str, metadata: dict):
         SystemMessagePromptTemplate.from_template(system_template),
         HumanMessagePromptTemplate.from_template("{question}"),
     ])
-
 
 # Visualização interativa dos metadados no Chainlit
 async def show_extracted_metadata(metadata: dict):
@@ -455,7 +458,7 @@ async def reset_user_session():
 @cl.on_chat_start
 async def on_chat_start():
 
-    elements = [cl.Image(name="image1", display="inline", path="./robot.jpeg")]
+    elements = [cl.Image(name="image1", display="inline", path="./robot.PNG")]
     await cl.Message(content="Olá! Bem-vindo ao Chat Pericial! Envie um PDF para começar. 🤖", elements=elements).send()
 
     files = None
@@ -502,7 +505,14 @@ async def on_chat_start():
 
     pdf_text = pdf_text.replace("-\n", "").replace("\n", " ")
     original_chunks = text_splitter.split_text(pdf_text)
+
+    # Adiciona marcação extra para trechos com instruções futuras
+    for i, chunk in enumerate(original_chunks):
+        if any(kw in chunk.lower() for kw in ["deverá informar", "com antecedência de", "designar perícia", "será designada", "intimar para perícia"]):
+            original_chunks[i] = "[INSTRUÇÃO FUTURA] " + chunk
+
     normalized_texts = [normalize_text(t) for t in original_chunks]
+
     metadatas = [{"source": f"Trecho {i+1}"} for i in range(len(normalized_texts))]
 
     logging.info(f"[EXTRACTION] Método: {source_method}, Chunks gerados: {len(original_chunks)}")
