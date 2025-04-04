@@ -13,7 +13,8 @@ from langchain.chains import ConversationalRetrievalChain
 
 import os
 import chainlit as cl
-from chainlit.element import Text
+from chainlit.element import Element
+from chainlit.action import Action
 import PyPDF2
 from io import BytesIO
 from dotenv import load_dotenv
@@ -22,7 +23,6 @@ import re
 import logging
 import json
 from datetime import datetime
-
 from pdf2image import convert_from_bytes
 import pytesseract
 import cv2
@@ -33,7 +33,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 load_dotenv()
 
-# Configuração de logging
+
 logging.basicConfig(
     level=logging.INFO, 
     filename="chat_pericial.log", 
@@ -42,7 +42,7 @@ logging.basicConfig(
 )
 
 def log_similarity_scores(query: str, docs: list, scores: list):
-    """Registra os scores de similaridade dos documentos recuperados"""
+    
     log_data = {
         "query": query,
         "top_results": [
@@ -57,7 +57,7 @@ def log_similarity_scores(query: str, docs: list, scores: list):
 
 CHAT_HISTORY_FILE = "chat_history.json"
 
-# Metadados extraídos manualmente
+
 extracted_metadata = {}
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=300, separators=["\n\n", "\n", " ", ""])
@@ -80,8 +80,38 @@ def save_chat_history(user_input, response):
 nlp = spacy.load("pt_core_news_md")
 sbert_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
 
+@cl.action_callback("load_chat_history")
+async def load_chat_history(action):
+    
+    chat_id = action.payload
+    
+    history = load_chat_history_from_storage(chat_id)
+    
+    if history:
+        
+        await reset_user_session()
+        
+        
+        for msg in history["messages"]:
+            if msg["role"] == "user":
+                await cl.Message(content=msg["content"], author="Usuário").send()
+            else:
+                await cl.Message(content=msg["content"]).send()
+        
+        await cl.Message(content="Histórico de conversa restaurado.").send()
+    else:
+        await cl.Message(content="Não foi possível carregar o histórico.").send()
+
+def load_chat_history_from_storage(chat_id):
+    
+    try:
+        with open(f"chat_history{chat_id}.json", "r", encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return None
+
 def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
-    """Processa PDF usando extração híbrida (PyPDF2 + OCR quando necessário)"""
+    
     pdf_reader = PyPDF2.PdfReader(BytesIO(pdf_bytes))
     full_text = ""
     extraction_methods = []
@@ -89,11 +119,11 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     for i, page in enumerate(pdf_reader.pages):
         page_text = page.extract_text() or ""
         
-        # Verifica se o texto extraído é suficiente
+        
         if not page_text.strip() or len(page_text.strip()) < 100:
             logging.info(f"[OCR] Aplicando OCR na página {i+1} devido a texto insuficiente")
             try:
-                # Converte apenas a página atual para imagem
+                
                 images = convert_from_bytes(pdf_bytes, first_page=i+1, last_page=i+1)
                 if images:
                     image = cv2.cvtColor(np.array(images[0]), cv2.COLOR_RGB2GRAY)
@@ -115,8 +145,8 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     return full_text
 
 def detect_document_type(text: str) -> str:
-    """Detecta o tipo de documento jurídico com base no conteúdo"""
-    # Palavras-chave para cada tipo de documento
+    
+    
     keywords = {
         "petição_inicial": ["petição inicial", "autor requer", "dos pedidos", "dos fatos", "do direito", 
                            "deferimento", "termos em que", "pede deferimento"],
@@ -130,7 +160,7 @@ def detect_document_type(text: str) -> str:
         "acórdão": ["acórdão", "votação", "turma", "câmara", "relator", "revisor", "ementa"]
     }
     
-    # Conta ocorrências de palavras-chave
+    
     counts = {doc_type: 0 for doc_type in keywords}
     text_lower = text.lower()
     
@@ -138,7 +168,7 @@ def detect_document_type(text: str) -> str:
         for term in terms:
             counts[doc_type] += text_lower.count(term)
     
-    # Usa embeddings para classificação mais sofisticada
+    
     doc_types = list(keywords.keys())
     doc_descriptions = [
         "Petição inicial com pedidos e fatos",
@@ -149,20 +179,20 @@ def detect_document_type(text: str) -> str:
         "Acórdão com decisão colegiada"
     ]
     
-    # Calcula embeddings
-    text_embedding = sbert_model.encode([text_lower[:1000]])[0]  # Usa apenas o início do texto
+    
+    text_embedding = sbert_model.encode([text_lower[:1000]])[0]  
     desc_embeddings = sbert_model.encode(doc_descriptions)
     
-    # Calcula similaridade
+    
     similarities = cosine_similarity([text_embedding], desc_embeddings)[0]
     
-    # Combina contagem de palavras-chave com similaridade semântica
+    
     combined_scores = {
         doc_type: (counts[doc_type] * 0.7) + (similarities[i] * 0.3)
         for i, doc_type in enumerate(doc_types)
     }
     
-    # Determina o tipo mais provável
+    
     most_likely_type = max(combined_scores, key=combined_scores.get)
     confidence = combined_scores[most_likely_type]
     
@@ -183,7 +213,7 @@ def expand_question_for_legal_context(question: str) -> str:
     expanded = question.lower()
 
     if any(term in expanded for term in generic_terms):
-        # Adicionar todos os termos relacionados a partes do processo
+        
         expanded += " autor reclamante réu reclamada parte"
 
 
@@ -209,7 +239,7 @@ def extract_text_with_ocr(pdf_bytes: bytes) -> str:
     return full_text
 
 def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
-    """Processa PDF usando extração híbrida (PyPDF2 + OCR quando necessário)"""
+    
     pdf_reader = PyPDF2.PdfReader(BytesIO(pdf_bytes))
     full_text = ""
     extraction_methods = []
@@ -217,11 +247,11 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     for i, page in enumerate(pdf_reader.pages):
         page_text = page.extract_text() or ""
         
-        # Verifica se o texto extraído é suficiente
+        
         if not page_text.strip() or len(page_text.strip()) < 100:
             logging.info(f"[OCR] Aplicando OCR na página {i+1} devido a texto insuficiente")
             try:
-                # Converte apenas a página atual para imagem
+                
                 images = convert_from_bytes(pdf_bytes, first_page=i+1, last_page=i+1)
                 if images:
                     image = cv2.cvtColor(np.array(images[0]), cv2.COLOR_RGB2GRAY)
@@ -247,11 +277,11 @@ def extract_named_entities(text: str):
     return [(ent.text, ent.label_) for ent in doc.ents]
 
 def rerank_semantically(question: str, documents: list[Document]) -> list[Document]:
-    """Reordena documentos com base na similaridade semântica com a pergunta"""
-    # Expandir a pergunta com termos relacionados ao contexto jurídico
+    
+    
     expanded_question = expand_question_for_legal_context(question)
     
-    # Adicionar contexto jurídico à pergunta
+    
     if "réu" in question.lower() or "reu" in question.lower():
         expanded_question += " reclamado demandado parte contrária"
     if "autor" in question.lower():
@@ -259,20 +289,20 @@ def rerank_semantically(question: str, documents: list[Document]) -> list[Docume
     if "advogado" in question.lower():
         expanded_question += " procurador representante legal oab"
     
-    # Calcular embeddings
+    
     doc_texts = [doc.page_content for doc in documents]
     doc_embeddings = sbert_model.encode(doc_texts)
     question_embedding = sbert_model.encode([expanded_question])[0]
     
-    # Calcular similaridade
+    
     scores = cosine_similarity([question_embedding], doc_embeddings)[0]
     
-    # Ordenar documentos por similaridade
+    
     ranked = sorted(zip(documents, scores), key=lambda x: x[1], reverse=True)
     if max(scores) < 0.4:
         return []
     
-    # Logging para depuração
+    
     logging.info(f"[RERANKING] Pergunta expandida: {expanded_question}")
     for i, (doc, score) in enumerate(ranked[:3]):
         logging.info(f"[RERANKING] Doc {i+1}, Score: {score:.4f}, Preview: {doc.page_content[:80]}...")
@@ -283,7 +313,7 @@ def rerank_semantically(question: str, documents: list[Document]) -> list[Docume
 def extract_explicit_metadata(text: str) -> dict:
     metadata = {}
 
-    # ----------- INFORMAÇÕES BÁSICAS -----------
+    
     if match := re.search(r"Data da Autua[çc][aã]o[:\s]+(\d{2}/\d{2}/\d{4})", text, re.IGNORECASE):
         metadata["data_autuacao"] = match.group(1)
     if match := re.search(r"Valor da causa[:\s]+R\$\s*([\d.,]+)", text, re.IGNORECASE):
@@ -293,7 +323,7 @@ def extract_explicit_metadata(text: str) -> dict:
     if match := re.search(r"Vara do Trabalho de ([\w\s]+)", text):
         metadata["vara"] = match.group(1).strip()
 
-    # ----------- EXTRAÇÃO DE PARTES E ADVOGADOS -----------
+    
     match_partes = re.search(
         r"AUTOR[:\s]+([^\n\r]+?)\s+ADVOGADO[:\s]+([^\n\r]+?)\s+R[ÉE]U[:\s]+([^\n\r]+?)\s+ADVOGADO[:\s]+([^\n\r]+)",
         text, re.IGNORECASE
@@ -318,7 +348,7 @@ def extract_explicit_metadata(text: str) -> dict:
                 partes["advogado_reu"] = linha.split(":", 1)[-1].strip()
         metadata.update(partes)
 
-    # ----------- COMPLEMENTOS OPCIONAIS -----------
+    
     if match := re.search(r"OAB[:/\s]*([A-Z]{2}\s*\d+)", text):
         metadata["oab_advogado"] = match.group(1)
     if match := re.search(r"CRM[:/\s]*([A-Z]{2}\s*\d+)", text):
@@ -330,7 +360,7 @@ def extract_explicit_metadata(text: str) -> dict:
     if match := re.search(r"CNPJ[:\s]*(\d{2}\.?\d{3}\.?\d{3}/?0001-\d{2})", text, re.IGNORECASE):
         metadata["cnpj_reclamada"] = match.group(1)
 
-    # ----------- EXTRAÇÃO COM spaCy (complementar) -----------
+    
     doc = nlp(text)
     for ent in doc.ents:
         if ent.label_ == "PER" and any(term in ent.sent.text.lower() for term in ["juiz", "magistrado", "julgador"]):
@@ -354,13 +384,13 @@ def format_metadata_for_prompt(metadata: dict) -> str:
 
 
 def build_adaptive_prompt(query: str, metadata: dict):
-    """Cria um prompt adaptativo baseado no tipo de pergunta do usuário"""
+    
     metadata_str = format_metadata_for_prompt(metadata)
     
-    # Detecta o tipo de pergunta
+    
     query_lower = query.lower()
     
-    # Instruções específicas baseadas no tipo de pergunta
+    
     specific_instructions = ""
     
     if any(term in query_lower for term in ["autor", "reclamante", "requerente", "parte"]):
@@ -434,7 +464,7 @@ def build_adaptive_prompt(query: str, metadata: dict):
         HumanMessagePromptTemplate.from_template("{question}"),
     ])
 
-# Visualização interativa dos metadados no Chainlit
+
 async def show_extracted_metadata(metadata: dict):
     if metadata:
         lines = ["| Campo | Valor |", "|-------|-------|"]
@@ -443,12 +473,12 @@ async def show_extracted_metadata(metadata: dict):
     else:
         await cl.Message(content="⚠️ Nenhum metadado foi detectado automaticamente.").send()
 
-# Inicializa o chain_type_kwargs global para uso posterior
+
 chain_type_kwargs = {
-    "prompt": build_adaptive_prompt(query="", metadata={})  # substituído dinamicamente após o PDF ser processado
+    "prompt": build_adaptive_prompt(query="", metadata={})  
 }
 
-# Função auxiliar para limpar dados da sessão do usuário de forma segura
+
 async def reset_user_session():
     keys = ["chain", "retriever", "original_texts", "normalized_texts", "metadatas", "metadata"]
     for key in keys:
@@ -458,7 +488,7 @@ async def reset_user_session():
 @cl.on_chat_start
 async def on_chat_start():
 
-    elements = [cl.Image(name="image1", display="inline", path="./robot.PNG")]
+    elements = [cl.Image(name="image1", display="inline", path="robot.jpeg")]
     await cl.Message(content="Olá! Bem-vindo ao Chat Pericial! Envie um PDF para começar. 🤖", elements=elements).send()
 
     files = None
@@ -478,7 +508,7 @@ async def on_chat_start():
         with open(file.path, "rb") as f:
             pdf_bytes = f.read()
         
-        # Usa o novo método de extração híbrida
+        
         pdf_text = process_pdf_with_hybrid_extraction(pdf_bytes)
         source_method = "Híbrido"
         
@@ -492,7 +522,7 @@ async def on_chat_start():
     document_type = detect_document_type(pdf_text)
     cl.user_session.set("document_type", document_type)
 
-        # Inicializa a memória de conversa
+        
     memory = ConversationBufferMemory(
         memory_key="chat_history",
         return_messages=True,
@@ -506,7 +536,7 @@ async def on_chat_start():
     pdf_text = pdf_text.replace("-\n", "").replace("\n", " ")
     original_chunks = text_splitter.split_text(pdf_text)
 
-    # Adiciona marcação extra para trechos com instruções futuras
+    
     for i, chunk in enumerate(original_chunks):
         if any(kw in chunk.lower() for kw in ["deverá informar", "com antecedência de", "designar perícia", "será designada", "intimar para perícia"]):
             original_chunks[i] = "[INSTRUÇÃO FUTURA] " + chunk
@@ -517,22 +547,21 @@ async def on_chat_start():
 
     logging.info(f"[EXTRACTION] Método: {source_method}, Chunks gerados: {len(original_chunks)}")
 
-    # Antes de tudo, limpe a sessão
+    
     await reset_user_session()
-
-    # Depois de carregar e processar o PDF:
+    
+    
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
     docsearch = await cl.make_async(FAISS.from_texts)(
         normalized_texts, embeddings, metadatas=metadatas
     )
-    # Modifique o retriever para usar parâmetros mais simples
+    
     retriever = docsearch.as_retriever(
         search_type="similarity",
-        search_kwargs={"k": 12}  # Aumentar para 5-6 se necessário
+        search_kwargs={"k": 12}  
     )
 
-
-    # In the on_chat_start function:
+    
     chain = ConversationalRetrievalChain.from_llm(
         llm=ChatOpenAI(model="gpt-4", temperature=0),
         retriever=retriever,
@@ -540,11 +569,11 @@ async def on_chat_start():
         return_source_documents=True,
         combine_docs_chain_kwargs={
             "prompt": build_adaptive_prompt(query="", metadata=extracted_metadata),
-            "document_variable_name": "context"  # This tells the chain to use "context" instead of "summaries"
+            "document_variable_name": "context"
         }
     )
 
-    # Salva tudo na sessão atual
+    
     cl.user_session.set("chain", chain)
     cl.user_session.set("retriever", retriever)
     cl.user_session.set("original_texts", original_chunks)
@@ -562,13 +591,13 @@ async def main(message: str):
         await cl.Message(content="⚠️ Cadeia não inicializada. Envie um PDF para começar.").send()
         return
 
-    # Log detalhado da pergunta e contexto
+    
     logging.info(f"[PERGUNTA ORIGINAL] {message.content}")
 
     query = normalize_text(message.content)
     docs = await chain.retriever.ainvoke(query)
 
-        # Log dos documentos recuperados
+        
     logging.info(f"[DOCUMENTOS RECUPERADOS] Total: {len(docs)}")
     for i, doc in enumerate(docs[:3]):
         logging.info(f"[DOC {i+1}] Fonte: {doc.metadata.get('source', '?')}")
@@ -581,18 +610,18 @@ async def main(message: str):
         fallback_docs = await chain.retriever.ainvoke(query_terms)
         
         if fallback_docs:
-            docs = fallback_docs[:3]  # Use os 3 primeiros documentos da busca de fallback
+            docs = fallback_docs[:3]  
             logging.info(f"[FALLBACK] Usando busca alternativa com termos: {query_terms}")
         else:
             await cl.Message(content="Não foi possível encontrar informações relevantes no documento para responder sua pergunta.").send()
             return
 
     try:
-        # Atualiza o prompt com base na pergunta atual
+        
         adaptive_prompt = build_adaptive_prompt(message.content, extracted_metadata)
         chain.combine_docs_chain.llm_chain.prompt = adaptive_prompt
 
-        # Limita o número de documentos para evitar respostas muito grandes
+        
         if len(docs) > 3:
             docs = docs[:3]
             
@@ -607,24 +636,24 @@ async def main(message: str):
         if isinstance(res, dict):
             answer = res.get("answer") or "Resposta não encontrada."
             
-            # Limita o tamanho da resposta
-            if len(answer) > 1000:
-                answer = answer[:997] + "..."
+            
+            if len(answer) > 2000:
+                answer = answer[:1997] + "..."
                 
-            # Salva no histórico
+            
             save_chat_history(message.content, answer)
             
-            # Envia a resposta sem elementos adicionais
+            
             await cl.Message(content=answer).send()
         else:
             answer = str(res)
-            if len(answer) > 1000:
-                answer = answer[:997] + "..."
+            if len(answer) > 2000:
+                answer = answer[:1997] + "..."
             await cl.Message(content=answer.strip()).send()
 
         save_chat_history(message.content, answer)
         logging.info(f"[PERGUNTA] {message.content}")
-        logging.info(f"[RESPOSTA] {answer[:200]}...")
+        logging.info(f"[RESPOSTA] {answer[:600]}...")
 
     except Exception as e:
         logging.error(f"[LLM ERROR] {e}")

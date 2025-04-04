@@ -798,5 +798,145 @@
     "timestamp": "2025-03-29T19:20:57.849718",
     "user_input": "ANTECEDENTES PREVIDENCIÁRIOS",
     "response": "Os antecedentes previdenciários da parte autora, Cleuza Vilhalba, são detalhados ao longo do documento. Ela teve vários períodos de auxílio-doença previdenciário, conforme listado abaixo:\n\n1. Benefício com início em 07/04/2021 e término em 11/11/2021.\n2. Benefício com início em 06/12/2021 e término em 05/12/2024.\n3. Benefício com início em 21/11/2020 e término em 30/12/2020.\n\nAlém disso, o documento menciona vários períodos de contribuição e remuneração, bem como a existência de vínculos trabalhistas em diferentes períodos. No entanto, sem uma pergunta mais específica, é difícil detalhar todos os antecedentes previdenciários mencionados no documento."
+  },
+  {
+    "timestamp": "2025-04-03T10:12:19.399289",
+    "user_input": "Nome do autor principal?",
+    "response": "O autor principal do documento é Cleuza Vilhalba."
+  },
+  {
+    "timestamp": "2025-04-03T10:12:19.414971",
+    "user_input": "Nome do autor principal?",
+    "response": "O autor principal do documento é Cleuza Vilhalba."
+  },
+  {
+    "timestamp": "2025-04-03T10:13:06.791524",
+    "user_input": "me informe todos os advogados listados da Cleuza Vilhalba",
+    "response": "Os advogados listados para Cleuza Vilhalba são:\n\n1. Igor Vinicius Neves Preigschadt\n2. Elisson Rosa de Quadros\n3. Tarcisio Bordin de Medeiros\n4. João Victor Ciancio (OAB/MS sob o nº 23631)"
+  },
+  {
+    "timestamp": "2025-04-03T10:13:06.808684",
+    "user_input": "me informe todos os advogados listados da Cleuza Vilhalba",
+    "response": "Os advogados listados para Cleuza Vilhalba são:\n\n1. Igor Vinicius Neves Preigschadt\n2. Elisson Rosa de Quadros\n3. Tarcisio Bordin de Medeiros\n4. João Victor Ciancio (OAB/MS sob o nº 23631)"
+  },
+  {
+    "timestamp": "2025-04-03T10:13:53.038899",
+    "user_input": "me informe agora o nome do réu, advogado e o perito",
+    "response": "Réu: ABV Comercio de Alimentos LTDA\nAdvogado do réu: Ana Claudia Araujo Santos Sena, inscrita na OAB/MS sob o nº 18\nPerito: Dr. Sergio Luis Boretti dos Santos, inscrito no CRM/MS sob o nº 7496."
+  },
+  {
+    "timestamp": "2025-04-03T10:13:53.066261",
+    "user_input": "me informe agora o nome do réu, advogado e o perito",
+    "response": "Réu: ABV Comercio de Alimentos LTDA\nAdvogado do réu: Ana Claudia Araujo Santos Sena, inscrita na OAB/MS sob o nº 18\nPerito: Dr. Sergio Luis Boretti dos Santos, inscrito no CRM/MS sob o nº 7496."
+  },
+  {
+    "timestamp": "2025-04-03T10:15:56.149220",
+    "user_input": "O perito tem CRM?",
+    "response": "Sim, o perito Dr. Sergio Luis Boretti dos Santos possui CRM, conforme indicado nos metadados do documento. No entanto, o documento não fornece o número específico do CRM."
+  },
+  {
+    "timestamp": "2025-04-03T10:15:56.163876",
+    "user_input": "O perito tem CRM?",
+    "response": "Sim, o perito Dr. Sergio Luis Boretti dos Santos possui CRM, conforme indicado nos metadados do documento. No entanto, o documento não fornece o número específico do CRM."
+  },
+  {
+    "timestamp": "2025-04-03T10:43:44.800545",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "Com base no documento, as informações relevantes para um agente pericial são:\n\n1. A perícia será realizada no dia 14 de fevereiro de 2025, sexta-feira, às 15h30min nas instalações da Vara do Trabalho.\n\n2. A reclamante (CLEUZA VILHALBA) deve comparecer à perícia, sob pena de se presumir a desistência da prova.\n\n3. O perito deve responder a uma série de quesitos apresentados, que incluem questões sobre a natureza e o percentual de incapacidade da reclamante, o histórico clínico, a existência de problemas congênitos que possam afetar a capacidade laborativa, a estimativa da data de início da lesão/doença, a progressão ou agravamento da lesão/doença, a possibilidade de eliminação ou minimização das sequelas, a natureza da incapacidade (temporária ou permanente, total ou parcial), a possibilidade de recuperação e reabilitação profissional, a necessidade de tratamentos ou cirurgias, entre outros.\n\n4. O perito também deve avaliar a capacidade residual de trabalho do reclamante e a viabilid..."
+  },
+  {
+    "timestamp": "2025-04-03T10:43:44.813252",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "Com base no documento, as informações relevantes para um agente pericial são:\n\n1. A perícia será realizada no dia 14 de fevereiro de 2025, sexta-feira, às 15h30min nas instalações da Vara do Trabalho.\n\n2. A reclamante (CLEUZA VILHALBA) deve comparecer à perícia, sob pena de se presumir a desistência da prova.\n\n3. O perito deve responder a uma série de quesitos apresentados, que incluem questões sobre a natureza e o percentual de incapacidade da reclamante, o histórico clínico, a existência de problemas congênitos que possam afetar a capacidade laborativa, a estimativa da data de início da lesão/doença, a progressão ou agravamento da lesão/doença, a possibilidade de eliminação ou minimização das sequelas, a natureza da incapacidade (temporária ou permanente, total ou parcial), a possibilidade de recuperação e reabilitação profissional, a necessidade de tratamentos ou cirurgias, entre outros.\n\n4. O perito também deve avaliar a capacidade residual de trabalho do reclamante e a viabilid..."
+  },
+  {
+    "timestamp": "2025-04-03T13:38:04.702195",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "O documento contém várias informações relevantes para um agente pericial:\n\n1. Autor e Réu: O autor é Eliane Rodrigues da Silva e o réu é Tango Sport LTDA - ME.\n\n2. Advogados: O advogado do autor é Thiago Kusunoki Ferachin, inscrito na OAB/MS sob o nº 11.645. O advogado do réu é Alciana Reolon Sanches.\n\n3. Valor da causa: R$ 98.182,88.\n\n4. Perícia: O perito deverá informar ao Juízo sobre o local, data e horário da realização da perícia com antecedência mínima de 10 dias. Caso o perito entenda necessário, está autorizado a proceder vistoria nos locais/setores de trabalho do reclamante para verificação das atividades desenvolvidas pelo mesmo.\n\n5. Documentos e exames: As partes deverão juntar aos autos, se desejarem, os demais documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOS, PPP, LTCAT, etc., que possam interferir no resultado da perícia, em até 05 dias corridos antes da data designada para a realização da perícia.\n\n6. Laudo pericial: O laudo perici..."
+  },
+  {
+    "timestamp": "2025-04-03T13:38:04.730305",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "O documento contém várias informações relevantes para um agente pericial:\n\n1. Autor e Réu: O autor é Eliane Rodrigues da Silva e o réu é Tango Sport LTDA - ME.\n\n2. Advogados: O advogado do autor é Thiago Kusunoki Ferachin, inscrito na OAB/MS sob o nº 11.645. O advogado do réu é Alciana Reolon Sanches.\n\n3. Valor da causa: R$ 98.182,88.\n\n4. Perícia: O perito deverá informar ao Juízo sobre o local, data e horário da realização da perícia com antecedência mínima de 10 dias. Caso o perito entenda necessário, está autorizado a proceder vistoria nos locais/setores de trabalho do reclamante para verificação das atividades desenvolvidas pelo mesmo.\n\n5. Documentos e exames: As partes deverão juntar aos autos, se desejarem, os demais documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOS, PPP, LTCAT, etc., que possam interferir no resultado da perícia, em até 05 dias corridos antes da data designada para a realização da perícia.\n\n6. Laudo pericial: O laudo perici..."
+  },
+  {
+    "timestamp": "2025-04-03T13:43:49.660524",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "O documento apresenta as seguintes informações relevantes para um agente pericial:\n\n1. Autora do processo: Eliane Rodrigues da Silva, representada pelo advogado Thiago Kusunoki Ferachin (OAB/MS 11.645).\n2. Réu: Tango Sport LTDA - ME, representada pela advogada Alciana Reolon Sanches.\n3. Valor da causa: R$ 98.182,88.\n4. Juiz responsável: Eliane Rodrigues da.\n5. A perícia será realizada no local de trabalho do reclamante para verificar as atividades desenvolvidas. O perito deverá informar ao Juízo sobre o local, data e horário com antecedência mínima de 10 dias.\n6. Em caso de impossibilidade de comparecimento do reclamante na perícia agendada, o motivo deve ser comprovado nos autos até o início da perícia.\n7. As partes devem juntar aos autos, se desejarem, documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOS, PPP, LTCAT, etc., que possam interferir no resultado da perícia, em até 05 dias corridos antes da data designada para a realização da perícia.\n8. Após a apresentação do laudo pericial, as partes serão intimadas para se manifestarem no prazo comum de 5 dias úteis.\n9. A apresentação do laudo pericial deve ocorrer no prazo de 15 dias após a realização da perícia, que deve ser feita no prazo máximo de 30 dias a partir da intimação da apresentação dos quesitos pelas partes.\n10. O documento também menciona a possibilidade de vistoria nos locais/setores de trabalho do reclamante para verificação das atividades desenvolvidas pelo mesmo.\n11. O documento menciona a necessidade de apresentação de exames complementares, se for o caso.\n12. O documento menciona a possibilidade de preclusão da realização da prova em caso de impossibilidade de comparecimento do reclamante na perícia agendada, salvo se comprovada a impossibilidade de fazê-lo.\n13. O documento menciona a possibilidade de preclusão da realização da prova em caso de não juntada de documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOS, PPP, LTCAT, etc..."
+  },
+  {
+    "timestamp": "2025-04-03T13:43:49.668904",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "O documento apresenta as seguintes informações relevantes para um agente pericial:\n\n1. Autora do processo: Eliane Rodrigues da Silva, representada pelo advogado Thiago Kusunoki Ferachin (OAB/MS 11.645).\n2. Réu: Tango Sport LTDA - ME, representada pela advogada Alciana Reolon Sanches.\n3. Valor da causa: R$ 98.182,88.\n4. Juiz responsável: Eliane Rodrigues da.\n5. A perícia será realizada no local de trabalho do reclamante para verificar as atividades desenvolvidas. O perito deverá informar ao Juízo sobre o local, data e horário com antecedência mínima de 10 dias.\n6. Em caso de impossibilidade de comparecimento do reclamante na perícia agendada, o motivo deve ser comprovado nos autos até o início da perícia.\n7. As partes devem juntar aos autos, se desejarem, documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOS, PPP, LTCAT, etc., que possam interferir no resultado da perícia, em até 05 dias corridos antes da data designada para a realização da perícia.\n8. Após a apresentação do laudo pericial, as partes serão intimadas para se manifestarem no prazo comum de 5 dias úteis.\n9. A apresentação do laudo pericial deve ocorrer no prazo de 15 dias após a realização da perícia, que deve ser feita no prazo máximo de 30 dias a partir da intimação da apresentação dos quesitos pelas partes.\n10. O documento também menciona a possibilidade de vistoria nos locais/setores de trabalho do reclamante para verificação das atividades desenvolvidas pelo mesmo.\n11. O documento menciona a necessidade de apresentação de exames complementares, se for o caso.\n12. O documento menciona a possibilidade de preclusão da realização da prova em caso de impossibilidade de comparecimento do reclamante na perícia agendada, salvo se comprovada a impossibilidade de fazê-lo.\n13. O documento menciona a possibilidade de preclusão da realização da prova em caso de não juntada de documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOS, PPP, LTCAT, etc..."
+  },
+  {
+    "timestamp": "2025-04-03T14:19:01.609349",
+    "user_input": "NÚMERO DE PAUSAS OU INTERVALOR E QUANTIDADE DE TEMPO",
+    "response": "A reclamante, Eliane Rodrigues da Silva, alega que trabalhou de segunda a sexta-feira, das 06:40h às 16:40h, com um intervalo de 1 hora para descanso das 12:00h às 13:00h. No entanto, ela afirma que não recebia o intervalo intrajornada adequado, pois trabalhava mais de 4 horas seguidas sem pausas tanto no período da manhã quanto no da tarde. Segundo a legislação citada (artigo 71, §1º da CLT), ela teria direito a um intervalo de no mínimo 30 minutos somados os dois períodos.\n\nPor outro lado, a defesa da ré, Tango Sport LTDA - ME, argumenta que todos os colaboradores, incluindo a reclamante, realizavam pausas durante a jornada de trabalho para prática de ginástica laboral. No entanto, o documento não especifica a duração dessas pausas. A defesa também afirma que, por ser a jornada superior a 6 horas, foi concedido à reclamante o intervalo de uma hora para descanso e alimentação."
+  },
+  {
+    "timestamp": "2025-04-03T14:19:01.616823",
+    "user_input": "NÚMERO DE PAUSAS OU INTERVALOR E QUANTIDADE DE TEMPO",
+    "response": "A reclamante, Eliane Rodrigues da Silva, alega que trabalhou de segunda a sexta-feira, das 06:40h às 16:40h, com um intervalo de 1 hora para descanso das 12:00h às 13:00h. No entanto, ela afirma que não recebia o intervalo intrajornada adequado, pois trabalhava mais de 4 horas seguidas sem pausas tanto no período da manhã quanto no da tarde. Segundo a legislação citada (artigo 71, §1º da CLT), ela teria direito a um intervalo de no mínimo 30 minutos somados os dois períodos.\n\nPor outro lado, a defesa da ré, Tango Sport LTDA - ME, argumenta que todos os colaboradores, incluindo a reclamante, realizavam pausas durante a jornada de trabalho para prática de ginástica laboral. No entanto, o documento não especifica a duração dessas pausas. A defesa também afirma que, por ser a jornada superior a 6 horas, foi concedido à reclamante o intervalo de uma hora para descanso e alimentação."
+  },
+  {
+    "timestamp": "2025-04-03T14:46:21.730283",
+    "user_input": "nome do autor",
+    "response": "O autor do processo é Eliane Rodrigues da Silva."
+  },
+  {
+    "timestamp": "2025-04-03T14:46:21.738462",
+    "user_input": "nome do autor",
+    "response": "O autor do processo é Eliane Rodrigues da Silva."
+  },
+  {
+    "timestamp": "2025-04-03T14:46:42.263589",
+    "user_input": "quais são as partes?",
+    "response": "As partes envolvidas no processo são:\n\nAutor: Eliane Rodrigues da Silva\nRéu: Tango Sport LTDA - ME"
+  },
+  {
+    "timestamp": "2025-04-03T14:46:42.269612",
+    "user_input": "quais são as partes?",
+    "response": "As partes envolvidas no processo são:\n\nAutor: Eliane Rodrigues da Silva\nRéu: Tango Sport LTDA - ME"
+  },
+  {
+    "timestamp": "2025-04-03T14:49:08.412155",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "As informações relevantes para um agente pericial neste documento são:\n\n1. A perícia deve ser realizada no prazo máximo de 30 dias a partir da intimação da apresentação dos quesitos pelas partes.\n\n2. O perito deve apresentar o laudo pericial no prazo de 15 dias após a realização da perícia.\n\n3. Se o perito achar necessário para a conclusão pericial, ele está autorizado a proceder com a vistoria nos locais/setores de trabalho do reclamante para verificar as atividades desenvolvidas pelo mesmo.\n\n4. O perito deve informar ao juízo sobre os locais, as datas e os horários da realização das perícias com a antecedência mínima de 10 dias, possibilitando que as partes sejam regularmente intimadas para ciência e acompanhamento dos trabalhos periciais.\n\n5. O perito também deve informar sobre a necessidade de apresentação de exames complementares, se for o caso, e esses devem ser anexados aos autos.\n\n6. As partes devem juntar aos autos, se desejarem, os demais documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOs, PPP, LTCAT, etc., que possam interferir no resultado da perícia em até 05 dias corridos antes da data designada para a realização da perícia.\n\n7. Em caso de impossibilidade de comparecimento do reclamante na perícia agendada, o motivo deve ser comprovado nos autos até o início da perícia, sob pena de preclusão da realização da prova. O reclamante responderá pelas custas da perícia designada e não realizada pela sua ausência.\n\n8. Após a apresentação do laudo, as partes serão intimadas para se manifestarem no prazo comum de 5 dias úteis, sob pena de preclusão."
+  },
+  {
+    "timestamp": "2025-04-03T14:49:08.422382",
+    "user_input": "TRAZER TODAS AS INFORMAÇÕES RELEVANTES PARA UM AGENTE PERICÍAL NESSE DOCUMENTO",
+    "response": "As informações relevantes para um agente pericial neste documento são:\n\n1. A perícia deve ser realizada no prazo máximo de 30 dias a partir da intimação da apresentação dos quesitos pelas partes.\n\n2. O perito deve apresentar o laudo pericial no prazo de 15 dias após a realização da perícia.\n\n3. Se o perito achar necessário para a conclusão pericial, ele está autorizado a proceder com a vistoria nos locais/setores de trabalho do reclamante para verificar as atividades desenvolvidas pelo mesmo.\n\n4. O perito deve informar ao juízo sobre os locais, as datas e os horários da realização das perícias com a antecedência mínima de 10 dias, possibilitando que as partes sejam regularmente intimadas para ciência e acompanhamento dos trabalhos periciais.\n\n5. O perito também deve informar sobre a necessidade de apresentação de exames complementares, se for o caso, e esses devem ser anexados aos autos.\n\n6. As partes devem juntar aos autos, se desejarem, os demais documentos, exames clínicos, laudos, ultrassonografias, ressonâncias, atestados, ASOs, PPP, LTCAT, etc., que possam interferir no resultado da perícia em até 05 dias corridos antes da data designada para a realização da perícia.\n\n7. Em caso de impossibilidade de comparecimento do reclamante na perícia agendada, o motivo deve ser comprovado nos autos até o início da perícia, sob pena de preclusão da realização da prova. O reclamante responderá pelas custas da perícia designada e não realizada pela sua ausência.\n\n8. Após a apresentação do laudo, as partes serão intimadas para se manifestarem no prazo comum de 5 dias úteis, sob pena de preclusão."
+  },
+  {
+    "timestamp": "2025-04-04T13:51:14.630254",
+    "user_input": "Nome do autor",
+    "response": "O autor do processo é Eliane Rodrigues da Silva."
+  },
+  {
+    "timestamp": "2025-04-04T13:51:14.653318",
+    "user_input": "Nome do autor",
+    "response": "O autor do processo é Eliane Rodrigues da Silva."
+  },
+  {
+    "timestamp": "2025-04-04T14:00:32.417957",
+    "user_input": "PARTICIPANTES DO ATO PERICIAL",
+    "response": "O ato pericial contou com a presença do reclamante, Alessandro da Silva. No entanto, o assistente técnico da reclamada não estava presente durante a perícia médica, que foi realizada às 11 horas do dia 29/11/2024 na Vara do Trabalho de Andradina. O perito do juízo que conduziu a perícia foi o Dr. Mauro Lopes Garcia Filho."
+  },
+  {
+    "timestamp": "2025-04-04T14:00:32.442665",
+    "user_input": "PARTICIPANTES DO ATO PERICIAL",
+    "response": "O ato pericial contou com a presença do reclamante, Alessandro da Silva. No entanto, o assistente técnico da reclamada não estava presente durante a perícia médica, que foi realizada às 11 horas do dia 29/11/2024 na Vara do Trabalho de Andradina. O perito do juízo que conduziu a perícia foi o Dr. Mauro Lopes Garcia Filho."
+  },
+  {
+    "timestamp": "2025-04-04T14:06:53.469153",
+    "user_input": "NOME DA CIDADE DE PROCEDÊNCIA DA VARA, DATA DA REALIZAÇÃO DA PERÍCIA",
+    "response": "A cidade de procedência da vara é Ponta Porã. A perícia será realizada no dia 14 de fevereiro de 2025."
+  },
+  {
+    "timestamp": "2025-04-04T14:06:53.489201",
+    "user_input": "NOME DA CIDADE DE PROCEDÊNCIA DA VARA, DATA DA REALIZAÇÃO DA PERÍCIA",
+    "response": "A cidade de procedência da vara é Ponta Porã. A perícia será realizada no dia 14 de fevereiro de 2025."
   }
 ]
