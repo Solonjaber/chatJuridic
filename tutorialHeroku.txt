@@ -1,0 +1,19 @@
+# Acesse a pasta do projeto
+cd meu-projeto/
+
+# Inicie um repositório git se ainda não tiver
+git init
+heroku create nome-do-seu-app --buildpack https://github.com/heroku/heroku-buildpack-python
+
+# Adicione o buildpack do APT
+heroku buildpacks:add --index 1 https://github.com/heroku/heroku-buildpack-apt
+
+# Confirme a ordem dos buildpacks
+heroku buildpacks
+
+# Adicione os arquivos e faça commit
+git add .
+git commit -m "Deploy inicial"
+
+# Faça o push para o Heroku
+git push heroku main
