@@ -17,3 +17,16 @@ git commit -m "Deploy inicial"
 
 # Faça o push para o Heroku
 git push heroku main
+
+# Variáveis de ambiente
+Configure no Heroku Dashboard (ou via CLI)
+
+heroku config:set OPENAI_API_KEY=xxx
+heroku config:set OTHER_SECRET=yyy
+
+# Teste final
+Acesse o app:
+heroku open
+
+Ou veja os logs:
+heroku logs --tail
