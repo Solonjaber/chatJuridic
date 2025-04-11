@@ -33,6 +33,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 load_dotenv()
 
+try:
+    nlp = spacy.load("pt_core_news_md")
+except OSError:
+    from spacy.cli import download
+    download("pt_core_news_md")
+    nlp = spacy.load("pt_core_news_md")
 
 logging.basicConfig(
     level=logging.INFO, 
