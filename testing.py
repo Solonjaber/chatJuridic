@@ -1,12 +1,11 @@
-from flask import Flask
+import chainlit as cl
 
-app = Flask(__name__)
 
-@app.route('/')
-def hello():
-    return "Hello from ChatJuridic! Railway test is working!"
+@cl.on_message
+async def main(message: cl.Message):
+    # Your custom logic goes here...
 
-if __name__ == '__main__':
-    import os
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port)
+    # Send a response back to the user
+    await cl.Message(
+        content=f"Received: {message.content}",
+    ).send()
