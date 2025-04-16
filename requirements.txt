@@ -1,2 +1,21 @@
 #  libs
+langchain==0.3.22
+langchain-community==0.3.20
+langchain-core==0.3.50
+langchain-openai==0.3.12
+faiss-cpu==1.10.0
+sentence-transformers==4.0.2
+scikit-learn==1.6.1
+spacy==3.8.5
+pt_core_news_md @ https://github.com/explosion/spacy-models/releases/download/pt_core_news_md-3.8.0/pt_core_news_md-3.8.0-py3-none-any.whl
+PyPDF2==3.0.1
+pdf2image==1.17.0
+pytesseract==0.3.13
+opencv-python==4.11.0.86
+pillow==11.1.0
 chainlit==2.4.400
+python-dotenv==1.1.0
+numpy==2.2.4
+regex==2024.11.6
+requests==2.32.3
+huggingface_hub[hf_xet]
