@@ -3,6 +3,7 @@ FROM python:3.12-slim
 # Instala bibliotecas de sistema para OCR, PDF e imagem
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
+    tesseract-ocr-por \
     poppler-utils \
     libglib2.0-0 \
     libsm6 \
@@ -20,9 +21,14 @@ COPY . .
 # Instala as dependências Python
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN python -m spacy download pt_core_news_md
 
-# Expõe porta padrão
-EXPOSE 8000
+# Configuração do Chainlit
+RUN mkdir -p .chainlit
+RUN echo '{"host": "0.0.0.0", "port": 8080, "socketio": {"max_http_buffer_size": 100000000}}' > .chainlit/config.json
 
-# Inicia a aplicação (ajuste para chainlit, uvicorn ou seu script)
-CMD ["chainlit", "run", "pdf_juri2.py", "-w", "--host", "0.0.0.0", "--port", "8000"]
+# Expõe porta
+EXPOSE 8080
+
+# Inicia a aplicação
+CMD ["chainlit", "run", "testing.py", "-w", "--host", "0.0.0.0", "--port", "8080"]
