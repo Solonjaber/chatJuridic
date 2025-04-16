@@ -32,10 +32,3 @@ RUN echo '{"host":"0.0.0.0","debug":true,"socketio":{"max_http_buffer_size":1000
 
 # Variáveis de ambiente
 ENV PYTHONUNBUFFERED=1
-
-# Cria um script de inicialização que lida corretamente com a variável PORT
-RUN echo '#!/bin/bash\n\n# Obter a porta do Railway ou usar 8080 como padrão\nPORT_NUMBER=${PORT:-8080}\n\n# Iniciar o Chainlit com a porta correta\nchainlit run pdf_juri2.py --host 0.0.0.0 --port $PORT_NUMBER --debug' > /app/start.sh
-RUN chmod +x /app/start.sh
-
-# Usa o script como ponto de entrada
-CMD ["/app/start.sh"]
