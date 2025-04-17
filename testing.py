@@ -509,7 +509,7 @@ async def on_chat_start():
                 content="Por favor, envie um arquivo PDF para começarmos.",
                 accept=["application/pdf"],
                 max_size_mb=20,
-                timeout=180,
+                timeout=500,
             ).send()
 
         file = files[0]
