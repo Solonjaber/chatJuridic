@@ -33,6 +33,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 load_dotenv()
 
+print("✅ App iniciou - top level do script")
+logging.info("✅ App iniciou - topo do script")
 
 logging.basicConfig(
     level=logging.INFO, 
@@ -78,7 +80,13 @@ def save_chat_history(user_input, response):
         json.dump(history, f, indent=2, ensure_ascii=False)
 
 nlp = spacy.load("pt_core_news_md")
-sbert_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
+try:
+    sbert_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
+    logging.info("✅ SBERT carregado com sucesso.")
+except Exception as e:
+    logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
+    import sys
+    sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
 
 @cl.action_callback("load_chat_history")
 async def load_chat_history(action):
