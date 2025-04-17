@@ -65,30 +65,30 @@ extracted_metadata = {}
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=300, separators=["\n\n", "\n", " ", ""])
 
-# def save_chat_history(user_input, response):
-#     history_entry = {
-#         "timestamp": datetime.now().isoformat(),
-#         "user_input": user_input,
-#         "response": response
-#     }
-#     if os.path.exists(CHAT_HISTORY_FILE):
-#         with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as f:
-#             history = json.load(f)
-#     else:
-#         history = []
-#     history.append(history_entry)
-#     with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as f:
-#         json.dump(history, f, indent=2, ensure_ascii=False)
+def save_chat_history(user_input, response):
+    history_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "user_input": user_input,
+        "response": response
+    }
+    if os.path.exists(CHAT_HISTORY_FILE):
+        with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    else:
+        history = []
+    history.append(history_entry)
+    with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
 
-# nlp = spacy.load("pt_core_news_md")
+nlp = spacy.load("pt_core_news_md")
 
-# try:
-#     logging.info("⚠️ SBERT desativado para teste no Railway")
-#     sbert_model = None
-# except Exception as e:
-#     logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
-#     import sys
-#     sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
+try:
+    logging.info("⚠️ SBERT desativado para teste no Railway")
+    sbert_model = None
+except Exception as e:
+    logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
+    import sys
+    sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
 
 @cl.action_callback("load_chat_history")
 async def load_chat_history(action):
