@@ -1,5 +1,8 @@
 FROM python:3.12-slim
 
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TERM=xterm
+
 # Instala bibliotecas de sistema para OCR, PDF e imagem
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
