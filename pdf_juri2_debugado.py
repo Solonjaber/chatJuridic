@@ -65,30 +65,30 @@ extracted_metadata = {}
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=300, separators=["\n\n", "\n", " ", ""])
 
-def save_chat_history(user_input, response):
-    history_entry = {
-        "timestamp": datetime.now().isoformat(),
-        "user_input": user_input,
-        "response": response
-    }
-    if os.path.exists(CHAT_HISTORY_FILE):
-        with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as f:
-            history = json.load(f)
-    else:
-        history = []
-    history.append(history_entry)
-    with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(history, f, indent=2, ensure_ascii=False)
+# def save_chat_history(user_input, response):
+#     history_entry = {
+#         "timestamp": datetime.now().isoformat(),
+#         "user_input": user_input,
+#         "response": response
+#     }
+#     if os.path.exists(CHAT_HISTORY_FILE):
+#         with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as f:
+#             history = json.load(f)
+#     else:
+#         history = []
+#     history.append(history_entry)
+#     with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as f:
+#         json.dump(history, f, indent=2, ensure_ascii=False)
 
-nlp = spacy.load("pt_core_news_md")
+# nlp = spacy.load("pt_core_news_md")
 
-try:
-    logging.info("⚠️ SBERT desativado para teste no Railway")
-    sbert_model = None
-except Exception as e:
-    logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
-    import sys
-    sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
+# try:
+#     logging.info("⚠️ SBERT desativado para teste no Railway")
+#     sbert_model = None
+# except Exception as e:
+#     logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
+#     import sys
+#     sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
 
 @cl.action_callback("load_chat_history")
 async def load_chat_history(action):
@@ -155,7 +155,7 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     return full_text
 
 # def detect_document_type(text: str) -> str:
-# [FUNÇÃO COMENTADA PARA TESTE]
+
     
     
     keywords = {
@@ -249,56 +249,56 @@ def extract_text_with_ocr(pdf_bytes: bytes) -> str:
         full_text += text + "\n"
     return full_text
 
-# def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
+def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     
-#     pdf_reader = PyPDF2.PdfReader(BytesIO(pdf_bytes))
-#     full_text = ""
-#     extraction_methods = []
+    pdf_reader = PyPDF2.PdfReader(BytesIO(pdf_bytes))
+    full_text = ""
+    extraction_methods = []
     
-#     for i, page in enumerate(pdf_reader.pages):
-#         page_text = page.extract_text() or ""
+    for i, page in enumerate(pdf_reader.pages):
+        page_text = page.extract_text() or ""
         
         
-#         if not page_text.strip() or len(page_text.strip()) < 100:
-#             logging.info(f"[OCR] Aplicando OCR na página {i+1} devido a texto insuficiente")
-#             try:
+        if not page_text.strip() or len(page_text.strip()) < 100:
+            logging.info(f"[OCR] Aplicando OCR na página {i+1} devido a texto insuficiente")
+            try:
                 
-#                 images = convert_from_bytes(pdf_bytes, first_page=i+1, last_page=i+1)
-#                 if images:
-#                     image = cv2.cvtColor(np.array(images[0]), cv2.COLOR_RGB2GRAY)
-#                     image = cv2.threshold(image, 150, 255, cv2.THRESH_BINARY)[1]
-#                     ocr_text = pytesseract.image_to_string(image, lang="por")
-#                     page_text = ocr_text
-#                     extraction_methods.append(f"Página {i+1}: OCR")
-#                 else:
-#                     extraction_methods.append(f"Página {i+1}: Falha na conversão para imagem")
-#             except Exception as e:
-#                 logging.error(f"[OCR ERROR] Página {i+1}: {e}")
-#                 extraction_methods.append(f"Página {i+1}: Erro OCR")
-#         else:
-#             extraction_methods.append(f"Página {i+1}: PyPDF2")
+                images = convert_from_bytes(pdf_bytes, first_page=i+1, last_page=i+1)
+                if images:
+                    image = cv2.cvtColor(np.array(images[0]), cv2.COLOR_RGB2GRAY)
+                    image = cv2.threshold(image, 150, 255, cv2.THRESH_BINARY)[1]
+                    ocr_text = pytesseract.image_to_string(image, lang="por")
+                    page_text = ocr_text
+                    extraction_methods.append(f"Página {i+1}: OCR")
+                else:
+                    extraction_methods.append(f"Página {i+1}: Falha na conversão para imagem")
+            except Exception as e:
+                logging.error(f"[OCR ERROR] Página {i+1}: {e}")
+                extraction_methods.append(f"Página {i+1}: Erro OCR")
+        else:
+            extraction_methods.append(f"Página {i+1}: PyPDF2")
         
-#         full_text += page_text + "\n\n"
+        full_text += page_text + "\n\n"
     
-#     logging.info(f"[EXTRACTION METHODS] {'; '.join(extraction_methods)}")
-#     return full_text
+    logging.info(f"[EXTRACTION METHODS] {'; '.join(extraction_methods)}")
+    return full_text
 
 # def extract_named_entities(text: str):
 #     doc = nlp(text)
 #     return [(ent.text, ent.label_) for ent in doc.ents]
 
-# def rerank_semantically(question: str, documents: list[Document]) -> list[Document]:
+def rerank_semantically(question: str, documents: list[Document]) -> list[Document]:
     
     
-#     expanded_question = expand_question_for_legal_context(question)
+    expanded_question = expand_question_for_legal_context(question)
     
     
-#     if "réu" in question.lower() or "reu" in question.lower():
-#         expanded_question += " reclamado demandado parte contrária"
-#     if "autor" in question.lower():
-#         expanded_question += " reclamante requerente parte autora"
-#     if "advogado" in question.lower():
-#         expanded_question += " procurador representante legal oab"
+    if "réu" in question.lower() or "reu" in question.lower():
+        expanded_question += " reclamado demandado parte contrária"
+    if "autor" in question.lower():
+        expanded_question += " reclamante requerente parte autora"
+    if "advogado" in question.lower():
+        expanded_question += " procurador representante legal oab"
     
     
     # doc_texts = [doc.page_content for doc in documents]
@@ -544,52 +544,52 @@ async def on_chat_start():
     logging.info(f"[METADATA EXTRAIDA] {extracted_metadata}")
 
     pdf_text = pdf_text.replace("-\n", "").replace("\n", " ")
-    # original_chunks = text_splitter.split_text(pdf_text)
+    original_chunks = text_splitter.split_text(pdf_text)
 
     
-    # for i, chunk in enumerate(original_chunks):
-    #     if any(kw in chunk.lower() for kw in ["deverá informar", "com antecedência de", "designar perícia", "será designada", "intimar para perícia"]):
-    #         original_chunks[i] = "[INSTRUÇÃO FUTURA] " + chunk
+    for i, chunk in enumerate(original_chunks):
+        if any(kw in chunk.lower() for kw in ["deverá informar", "com antecedência de", "designar perícia", "será designada", "intimar para perícia"]):
+            original_chunks[i] = "[INSTRUÇÃO FUTURA] " + chunk
 
-    # normalized_texts = [normalize_text(t) for t in original_chunks]
+    normalized_texts = [normalize_text(t) for t in original_chunks]
 
-    # metadatas = [{"source": f"Trecho {i+1}"} for i in range(len(normalized_texts))]
+    metadatas = [{"source": f"Trecho {i+1}"} for i in range(len(normalized_texts))]
 
-    # logging.info(f"[EXTRACTION] Método: {source_method}, Chunks gerados: {len(original_chunks)}")
+    logging.info(f"[EXTRACTION] Método: {source_method}, Chunks gerados: {len(original_chunks)}")
 
     
     await reset_user_session()
     
     
-    # embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
-    # docsearch = await cl.make_async(FAISS.from_texts)(
-    #     normalized_texts, embeddings, metadatas=metadatas
-    # )
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+    docsearch = await cl.make_async(FAISS.from_texts)(
+        normalized_texts, embeddings, metadatas=metadatas
+    )
     
-    # retriever = docsearch.as_retriever(
-    #     search_type="similarity",
-    #     search_kwargs={"k": 12}  
-    # )
+    retriever = docsearch.as_retriever(
+        search_type="similarity",
+        search_kwargs={"k": 12}  
+    )
 
     
-    # chain = ConversationalRetrievalChain.from_llm(
-    #     llm=ChatOpenAI(model="gpt-4", temperature=0),
-    #     retriever=retriever,
-    #     memory=memory,
-    #     return_source_documents=True,
-    #     combine_docs_chain_kwargs={
-    #         "prompt": build_adaptive_prompt(query="", metadata=extracted_metadata),
-    #         "document_variable_name": "context"
-    #     }
-    # )
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=ChatOpenAI(model="gpt-4", temperature=0),
+        retriever=retriever,
+        memory=memory,
+        return_source_documents=True,
+        combine_docs_chain_kwargs={
+            "prompt": build_adaptive_prompt(query="", metadata=extracted_metadata),
+            "document_variable_name": "context"
+        }
+    )
 
     
-    # cl.user_session.set("chain", chain)
-    # cl.user_session.set("retriever", retriever)
-    # cl.user_session.set("original_texts", original_chunks)
-    # cl.user_session.set("normalized_texts", normalized_texts)
-    # cl.user_session.set("metadatas", metadatas)
-    # cl.user_session.set("memory", memory)
+    cl.user_session.set("chain", chain)
+    cl.user_session.set("retriever", retriever)
+    cl.user_session.set("original_texts", original_chunks)
+    cl.user_session.set("normalized_texts", normalized_texts)
+    cl.user_session.set("metadatas", metadatas)
+    cl.user_session.set("memory", memory)
 
     msg.content = f"Processamento de `{file.name}` concluído com sucesso via `{source_method}`! Pode perguntar algo. 📄"
     await msg.update()
