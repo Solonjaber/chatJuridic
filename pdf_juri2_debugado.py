@@ -34,61 +34,61 @@ from sklearn.metrics.pairwise import cosine_similarity
 load_dotenv()
 
 
-# logging.basicConfig(
-#     level=logging.INFO,
-#     format="%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s",
-#     handlers=[
-#         logging.FileHandler("chat_pericial.log", mode='a', encoding="utf-8"),
-#         logging.StreamHandler()  # <-- Exibe no console do Railway
-#     ]
-# )
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s",
+    handlers=[
+        logging.FileHandler("chat_pericial.log", mode='a', encoding="utf-8"),
+        logging.StreamHandler()  # <-- Exibe no console do Railway
+    ]
+)
 
 
-# def log_similarity_scores(query: str, docs: list, scores: list):
+def log_similarity_scores(query: str, docs: list, scores: list):
     
-#     log_data = {
-#         "query": query,
-#         "top_results": [
-#             {
-#                 "source": doc.metadata.get("source", "?"),
-#                 "score": float(score),
-#                 "preview": doc.page_content[:50] + "..."
-#             } for doc, score in zip(docs, scores)
-#         ]
-#     }
-#     logging.info(f"[SIMILARITY SCORES] {json.dumps(log_data, ensure_ascii=False)}")
+    log_data = {
+        "query": query,
+        "top_results": [
+            {
+                "source": doc.metadata.get("source", "?"),
+                "score": float(score),
+                "preview": doc.page_content[:50] + "..."
+            } for doc, score in zip(docs, scores)
+        ]
+    }
+    logging.info(f"[SIMILARITY SCORES] {json.dumps(log_data, ensure_ascii=False)}")
 
-# CHAT_HISTORY_FILE = "chat_history.json"
+CHAT_HISTORY_FILE = "chat_history.json"
 
 
-# extracted_metadata = {}
+extracted_metadata = {}
 
-# text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=300, separators=["\n\n", "\n", " ", ""])
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=300, separators=["\n\n", "\n", " ", ""])
 
-# def save_chat_history(user_input, response):
-#     history_entry = {
-#         "timestamp": datetime.now().isoformat(),
-#         "user_input": user_input,
-#         "response": response
-#     }
-#     if os.path.exists(CHAT_HISTORY_FILE):
-#         with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as f:
-#             history = json.load(f)
-#     else:
-#         history = []
-#     history.append(history_entry)
-#     with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as f:
-#         json.dump(history, f, indent=2, ensure_ascii=False)
+def save_chat_history(user_input, response):
+    history_entry = {
+        "timestamp": datetime.now().isoformat(),
+        "user_input": user_input,
+        "response": response
+    }
+    if os.path.exists(CHAT_HISTORY_FILE):
+        with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    else:
+        history = []
+    history.append(history_entry)
+    with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as f:
+        json.dump(history, f, indent=2, ensure_ascii=False)
 
-# nlp = spacy.load("pt_core_news_md")
+nlp = spacy.load("pt_core_news_md")
 
-# try:
-#     logging.info("⚠️ SBERT desativado para teste no Railway")
-#     sbert_model = None
-# except Exception as e:
-#     logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
-#     import sys
-#     sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
+try:
+    logging.info("⚠️ SBERT desativado para teste no Railway")
+    sbert_model = None
+except Exception as e:
+    logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
+    import sys
+    sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
 
 @cl.action_callback("load_chat_history")
 async def load_chat_history(action):
