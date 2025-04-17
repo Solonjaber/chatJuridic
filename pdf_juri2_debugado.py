@@ -28,7 +28,7 @@ import pytesseract
 import cv2
 import numpy as np
 import spacy
-# from sentence_transformers import SentenceTransformer
+from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 load_dotenv()
@@ -83,12 +83,11 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=300
 # nlp = spacy.load("pt_core_news_md")
 
 # try:
-#     logging.info("⚠️ SBERT desativado para teste no Railway")
-#     sbert_model = None
+#     sbert_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
+#     logging.info("✅ SBERT carregado com sucesso.")
 # except Exception as e:
 #     logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
-#     import sys
-#     sys.stderr.write(f"[SBERT ERROR] {str(e)}\n")
+#     sbert_model = None  # fallback seguro
 
 @cl.action_callback("load_chat_history")
 async def load_chat_history(action):
@@ -154,7 +153,7 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     logging.info(f"[EXTRACTION METHODS] {'; '.join(extraction_methods)}")
     return full_text
 
-# def detect_document_type(text: str) -> str:
+def detect_document_type(text: str) -> str:
 
     
     
@@ -191,25 +190,25 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     ]
     
     
-    # text_embedding = # sbert_model.encode([text_lower[:1000]])[0]
-    # desc_embeddings = # sbert_model.encode(doc_descriptions)
+    # text_embedding = sbert_model.encode([text_lower[:1000]])[0]
+    # desc_embeddings = sbert_model.encode(doc_descriptions)
     
     
-    similarities = cosine_similarity([text_embedding], desc_embeddings)[0]
+    # similarities = cosine_similarity([text_embedding], desc_embeddings)[0]
     
     
-    combined_scores = {
-        doc_type: (counts[doc_type] * 0.7) + (similarities[i] * 0.3)
-        for i, doc_type in enumerate(doc_types)
-    }
+    # combined_scores = {
+    #     doc_type: (counts[doc_type] * 0.7) + (similarities[i] * 0.3)
+    #     for i, doc_type in enumerate(doc_types)
+    # }
     
     
-    most_likely_type = max(combined_scores, key=combined_scores.get)
-    confidence = combined_scores[most_likely_type]
+    # most_likely_type = max(combined_scores, key=combined_scores.get)
+    # confidence = combined_scores[most_likely_type]
     
-    logging.info(f"[DOCUMENT TYPE] Detectado: {most_likely_type} (confiança: {confidence:.2f})")
+    # logging.info(f"[DOCUMENT TYPE] Detectado: {most_likely_type} (confiança: {confidence:.2f})")
     
-    return most_likely_type
+    # return most_likely_type
 
 def expand_question_for_legal_context(question: str) -> str:
     synonyms = {
@@ -302,8 +301,8 @@ def rerank_semantically(question: str, documents: list[Document]) -> list[Docume
     
     
     # doc_texts = [doc.page_content for doc in documents]
-    # doc_embeddings = # sbert_model.encode(doc_texts)
-    # question_embedding = # sbert_model.encode([expanded_question])[0]
+    # doc_embeddings = sbert_model.encode(doc_texts)
+    # question_embedding = sbert_model.encode([expanded_question])[0]
     
     
     # scores = cosine_similarity([question_embedding], doc_embeddings)[0]
