@@ -28,7 +28,7 @@ import pytesseract
 import cv2
 import numpy as np
 import spacy
-from sentence_transformers import SentenceTransformer
+# from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
 load_dotenv()
@@ -83,8 +83,8 @@ def save_chat_history(user_input, response):
 nlp = spacy.load("pt_core_news_md")
 
 try:
-    sbert_model = SentenceTransformer('distiluse-base-multilingual-cased-v2')
-    logging.info("✅ SBERT carregado com sucesso.")
+    logging.info("⚠️ SBERT desativado para teste no Railway")
+    sbert_model = None
 except Exception as e:
     logging.error(f"❌ Erro ao carregar SentenceTransformer: {e}")
     import sys
@@ -154,7 +154,8 @@ def process_pdf_with_hybrid_extraction(pdf_bytes: bytes) -> str:
     logging.info(f"[EXTRACTION METHODS] {'; '.join(extraction_methods)}")
     return full_text
 
-def detect_document_type(text: str) -> str:
+# def detect_document_type(text: str) -> str:
+# [FUNÇÃO COMENTADA PARA TESTE]
     
     
     keywords = {
@@ -190,8 +191,8 @@ def detect_document_type(text: str) -> str:
     ]
     
     
-    text_embedding = sbert_model.encode([text_lower[:1000]])[0]  
-    desc_embeddings = sbert_model.encode(doc_descriptions)
+    # text_embedding = # sbert_model.encode([text_lower[:1000]])[0]
+    # desc_embeddings = # sbert_model.encode(doc_descriptions)
     
     
     similarities = cosine_similarity([text_embedding], desc_embeddings)[0]
@@ -300,24 +301,24 @@ def rerank_semantically(question: str, documents: list[Document]) -> list[Docume
         expanded_question += " procurador representante legal oab"
     
     
-    doc_texts = [doc.page_content for doc in documents]
-    doc_embeddings = sbert_model.encode(doc_texts)
-    question_embedding = sbert_model.encode([expanded_question])[0]
+    # doc_texts = [doc.page_content for doc in documents]
+    # doc_embeddings = # sbert_model.encode(doc_texts)
+    # question_embedding = # sbert_model.encode([expanded_question])[0]
     
     
-    scores = cosine_similarity([question_embedding], doc_embeddings)[0]
+    # scores = cosine_similarity([question_embedding], doc_embeddings)[0]
     
     
-    ranked = sorted(zip(documents, scores), key=lambda x: x[1], reverse=True)
-    if max(scores) < 0.4:
-        return []
+    # ranked = sorted(zip(documents, scores), key=lambda x: x[1], reverse=True)
+    # if max(scores) < 0.4:
+    #     return []
     
     
-    logging.info(f"[RERANKING] Pergunta expandida: {expanded_question}")
-    for i, (doc, score) in enumerate(ranked[:3]):
-        logging.info(f"[RERANKING] Doc {i+1}, Score: {score:.4f}, Preview: {doc.page_content[:80]}...")
+    # logging.info(f"[RERANKING] Pergunta expandida: {expanded_question}")
+    # for i, (doc, score) in enumerate(ranked[:3]):
+    #     logging.info(f"[RERANKING] Doc {i+1}, Score: {score:.4f}, Preview: {doc.page_content[:80]}...")
         
-    return [doc for doc, _ in ranked]
+    # return [doc for doc, _ in ranked]
 
 
 def extract_explicit_metadata(text: str) -> dict:
@@ -497,106 +498,103 @@ async def reset_user_session():
 
 @cl.on_chat_start
 async def on_chat_start():
-    logging.info("🟢 Iniciando on_chat_start()")
+
+    elements = [cl.Image(name="image1", display="inline", path="robot.jpeg")]
+    await cl.Message(content="Olá! Bem-vindo ao Chat Pericial! Envie um PDF para começar. 🤖", elements=elements).send()
+
+    files = None
+    while files is None:
+        files = await cl.AskFileMessage(
+            content="Por favor, envie um arquivo PDF para começarmos.",
+            accept=["application/pdf"],
+            max_size_mb=20,
+            timeout=180,
+        ).send()
+
+    file = files[0]
+    msg = cl.Message(content=f"Processando `{file.name}`...")
+    await msg.send()
+
     try:
-        await cl.Message(content="Olá! Bem-vindo ao Chat Pericial! Envie um PDF para começar. 🤖").send()
-
-        files = None
-        while files is None:
-            files = await cl.AskFileMessage(
-                content="Por favor, envie um arquivo PDF para começarmos.",
-                accept=["application/pdf"],
-                max_size_mb=20,
-                timeout=500,
-            ).send()
-
-        file = files[0]
-        msg = cl.Message(content=f"Processando `{file.name}`...")
-        await msg.send()
-
-        try:
-            with open(file.path, "rb") as f:
-                pdf_bytes = f.read()
-            
-            pdf_text = process_pdf_with_hybrid_extraction(pdf_bytes)
-            source_method = "Híbrido"
-            
-            if not pdf_text.strip():
-                raise ValueError("Não foi possível extrair texto do documento.")
-        except Exception as e:
-            logging.error(f"[PDF EXTRACTION ERROR] {e}")
-            await cl.Message(content=f"Erro ao processar o PDF: {str(e)}").send()
-            return
-
-        document_type = detect_document_type(pdf_text)
-        cl.user_session.set("document_type", document_type)
-            
-        memory = ConversationBufferMemory(
-            memory_key="chat_history",
-            return_messages=True,
-            output_key="answer"
-        )
-
-        global extracted_metadata
-        extracted_metadata = extract_explicit_metadata(pdf_text)
-        logging.info(f"[METADATA EXTRAIDA] {extracted_metadata}")
-
-        pdf_text = pdf_text.replace("-\n", "").replace("\n", " ")
-        original_chunks = text_splitter.split_text(pdf_text)
+        with open(file.path, "rb") as f:
+            pdf_bytes = f.read()
         
-        for i, chunk in enumerate(original_chunks):
-            if any(kw in chunk.lower() for kw in ["deverá informar", "com antecedência de", "designar perícia", "será designada", "intimar para perícia"]):
-                original_chunks[i] = "[INSTRUÇÃO FUTURA] " + chunk
-
-        normalized_texts = [normalize_text(t) for t in original_chunks]
-        metadatas = [{"source": f"Trecho {i+1}"} for i in range(len(normalized_texts))]
-        logging.info(f"[EXTRACTION] Método: {source_method}, Chunks gerados: {len(original_chunks)}")
         
-        await reset_user_session()
+        pdf_text = process_pdf_with_hybrid_extraction(pdf_bytes)
+        source_method = "Híbrido"
         
-        try:
-            embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
-            logging.info("✅ Embeddings carregados com sucesso")
-        except Exception as e:
-            logging.error(f"❌ Erro ao carregar embeddings: {e}")
-            await cl.Message(content=f"Erro ao carregar embeddings: {e}").send()
-            return
-
-        docsearch = await cl.make_async(FAISS.from_texts)(
-            normalized_texts, embeddings, metadatas=metadatas
-        )
-        
-        retriever = docsearch.as_retriever(
-            search_type="similarity",
-            search_kwargs={"k": 12}  
-        )
-        
-        chain = ConversationalRetrievalChain.from_llm(
-            llm=ChatOpenAI(model="gpt-4", temperature=0),
-            retriever=retriever,
-            memory=memory,
-            return_source_documents=True,
-            combine_docs_chain_kwargs={
-                "prompt": build_adaptive_prompt(query="", metadata=extracted_metadata),
-                "document_variable_name": "context"
-            }
-        )
-        
-        cl.user_session.set("chain", chain)
-        cl.user_session.set("retriever", retriever)
-        cl.user_session.set("original_texts", original_chunks)
-        cl.user_session.set("normalized_texts", normalized_texts)
-        cl.user_session.set("metadatas", metadatas)
-        cl.user_session.set("memory", memory)
-
-        msg.content = f"Processamento de `{file.name}` concluído com sucesso via `{source_method}`! Pode perguntar algo. 📄"
-        await msg.update()
-
+        if not pdf_text.strip():
+            raise ValueError("Não foi possível extrair texto do documento.")
     except Exception as e:
-        logging.error(f"❌ Erro inesperado em on_chat_start: {e}")
-        import sys
-        sys.stderr.write(f"[on_chat_start ERROR] {str(e)}\n")
-        await cl.Message(content=f"Erro ao iniciar a conversa: {e}").send()@cl.on_message
+        logging.error(f"[PDF EXTRACTION ERROR] {e}")
+        await cl.Message(content=f"Erro ao processar o PDF: {str(e)}").send()
+        return
+
+    logging.info("[DOCUMENT TYPE] Detecção desativada para teste")
+
+        
+    memory = ConversationBufferMemory(
+        memory_key="chat_history",
+        return_messages=True,
+        output_key="answer"
+    )
+
+    global extracted_metadata
+    extracted_metadata = extract_explicit_metadata(pdf_text)
+    logging.info(f"[METADATA EXTRAIDA] {extracted_metadata}")
+
+    pdf_text = pdf_text.replace("-\n", "").replace("\n", " ")
+    original_chunks = text_splitter.split_text(pdf_text)
+
+    
+    for i, chunk in enumerate(original_chunks):
+        if any(kw in chunk.lower() for kw in ["deverá informar", "com antecedência de", "designar perícia", "será designada", "intimar para perícia"]):
+            original_chunks[i] = "[INSTRUÇÃO FUTURA] " + chunk
+
+    normalized_texts = [normalize_text(t) for t in original_chunks]
+
+    metadatas = [{"source": f"Trecho {i+1}"} for i in range(len(normalized_texts))]
+
+    logging.info(f"[EXTRACTION] Método: {source_method}, Chunks gerados: {len(original_chunks)}")
+
+    
+    await reset_user_session()
+    
+    
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
+    docsearch = await cl.make_async(FAISS.from_texts)(
+        normalized_texts, embeddings, metadatas=metadatas
+    )
+    
+    retriever = docsearch.as_retriever(
+        search_type="similarity",
+        search_kwargs={"k": 12}  
+    )
+
+    
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=ChatOpenAI(model="gpt-4", temperature=0),
+        retriever=retriever,
+        memory=memory,
+        return_source_documents=True,
+        combine_docs_chain_kwargs={
+            "prompt": build_adaptive_prompt(query="", metadata=extracted_metadata),
+            "document_variable_name": "context"
+        }
+    )
+
+    
+    cl.user_session.set("chain", chain)
+    cl.user_session.set("retriever", retriever)
+    cl.user_session.set("original_texts", original_chunks)
+    cl.user_session.set("normalized_texts", normalized_texts)
+    cl.user_session.set("metadatas", metadatas)
+    cl.user_session.set("memory", memory)
+
+    msg.content = f"Processamento de `{file.name}` concluído com sucesso via `{source_method}`! Pode perguntar algo. 📄"
+    await msg.update()
+
+@cl.on_message
 async def main(message: str):
     chain = cl.user_session.get("chain")
     if chain is None:
